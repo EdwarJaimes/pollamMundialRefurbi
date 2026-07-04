@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Polla Refurbi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2ecc71; --primary-dark: #27ae60; --dark: #0f172a; --dark-light: #1e293b; --text: #f8fafc; --text-muted: #94a3b8; --glass-border: rgba(255, 255, 255, 0.1); }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--dark); color: var(--text); padding: 2rem; margin: 0; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary); }
+        .match-card { background: var(--dark-light); border: 1px solid var(--glass-border); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+        .match-header { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem; }
+        .teams-row { display: flex; align-items: center; justify-content: center; gap: 2rem; }
+        .team { display: flex; flex-direction: column; align-items: center; flex: 1; text-align: center; }
+        .flag { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-bottom: 0.5rem; border: 2px solid var(--glass-border); }
+        .team-name { font-weight: 600; font-size: 0.9rem; }
+        .admin-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 12px; }
+        .score-input { width: 60px; height: 50px; background: var(--dark); border: 2px solid var(--glass-border); border-radius: 8px; color: white; font-size: 1.5rem; font-weight: 800; text-align: center; }
+        .btn-process { background: var(--primary); color: #064e3b; border: none; padding: 1rem 2rem; border-radius: 12px; font-weight: 800; cursor: pointer; transition: all 0.3s; margin-top: 0.5rem; }
+        .btn-process:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .btn-process:disabled { opacity: 0.5; cursor: not-allowed; background: var(--text-muted); }
+        .status-msg { font-size: 0.8rem; text-align: center; min-height: 1rem; }
+        .status-processed { color: var(--primary); font-weight: 700; }
+
+        /* Danger Zone Styles */
+        .danger-zone { margin-top: 4rem; padding: 2rem; border: 1px dashed #e74c3c; border-radius: 16px; background: rgba(231, 76, 60, 0.05); text-align: center; }
+        .danger-zone h2 { color: #e74c3c; font-size: 1.2rem; margin-top: 0; }
+        .btn-danger { background: #e74c3c; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .btn-danger:hover { background: #c0392b; transform: scale(1.02); }
+
+        /* Participants Section */
+        .participants-zone { margin-top: 3rem; padding: 2rem; border: 1px solid var(--glass-border); border-radius: 16px; background: rgba(46, 204, 113, 0.05); }
+        .participants-zone h2 { color: var(--primary); font-size: 1.2rem; margin-top: 0; }
+        .add-participant-form { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .add-participant-form input { flex: 1; padding: 0.8rem; background: var(--dark); border: 1px solid var(--glass-border); border-radius: 8px; color: white; font-family: 'Outfit', sans-serif; }
+        .add-participant-form button { padding: 0.8rem 1.5rem; background: var(--primary); color: #064e3b; border: none; border-radius: 8px; font-weight: 800; cursor: pointer; transition: all 0.3s; }
+        .add-participant-form button:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .participants-list { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .participant-badge { background: rgba(46, 204, 113, 0.15); border: 1px solid rgba(46, 204, 113, 0.3); padding: 1rem 1.2rem; border-radius: 8px; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+        .participant-badge.no-predictions { background: rgba(231, 76, 60, 0.15); border-color: rgba(231, 76, 60, 0.45); }
+        .participant-badge button { background: #e74c3c; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; font-size: 0.75rem; white-space: nowrap; }
+        .participant-badge button:hover { background: #c0392b; }
+
+        /* Import Dates Section */
+        .import-zone { margin-top: 3rem; padding: 2rem; border: 1px solid rgba(52, 152, 219, 0.3); border-radius: 16px; background: rgba(52, 152, 219, 0.05); }
+        .import-zone h2 { color: #3498db; font-size: 1.2rem; margin-top: 0; }
+        .import-zone textarea { width: 100%; min-height: 150px; padding: 1rem; background: var(--dark); border: 1px solid var(--glass-border); border-radius: 8px; color: white; font-family: 'Courier New', monospace; font-size: 0.85rem; margin-bottom: 1rem; }
+        .import-zone button { padding: 0.8rem 1.5rem; background: #3498db; color: white; border: none; border-radius: 8px; font-weight: 800; cursor: pointer; transition: all 0.3s; }
+        .import-zone button:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .import-zone button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .import-status { margin-top: 1.5rem; padding: 1rem; border-radius: 8px; font-size: 0.85rem; }
+        .import-status.success { background: rgba(46, 204, 113, 0.1); border: 1px solid rgba(46, 204, 113, 0.3); color: var(--primary); }
+        .import-status.error { background: rgba(231, 76, 60, 0.1); border: 1px solid rgba(231, 76, 60, 0.3); color: #e74c3c; }
+
+        /* Settings Section */
+        .settings-zone { margin-top: 3rem; padding: 2rem; border: 1px solid rgba(241, 196, 15, 0.3); border-radius: 16px; background: rgba(241, 196, 15, 0.05); }
+        .settings-zone h2 { color: #f1c40f; font-size: 1.2rem; margin-top: 0; }
+        .settings-toggle { display: flex; align-items: flex-start; gap: 1rem; cursor: pointer; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid var(--glass-border); }
+        .settings-toggle input { width: 20px; height: 20px; margin-top: 2px; accent-color: #f1c40f; cursor: pointer; flex-shrink: 0; }
+        .settings-toggle span { font-weight: 600; display: block; margin-bottom: 0.25rem; }
+        .settings-toggle small { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+        .settings-status { margin-top: 1rem; font-size: 0.8rem; min-height: 1rem; }
+
+        /* Predictions Viewer */
+        .predictions-zone { margin-top: 3rem; padding: 2rem; border: 1px solid rgba(155, 89, 182, 0.3); border-radius: 16px; background: rgba(155, 89, 182, 0.05); }
+        .predictions-zone h2 { color: #9b59b6; font-size: 1.2rem; margin-top: 0; }
+        .predictions-zone select { width: 100%; padding: 0.8rem 1rem; background: var(--dark); border: 1px solid var(--glass-border); border-radius: 8px; color: white; font-family: 'Outfit', sans-serif; font-size: 0.95rem; margin-bottom: 1rem; cursor: pointer; }
+        .predictions-summary { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; min-height: 1.2rem; }
+        .predictions-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; max-height: 400px; overflow-y: auto; }
+        .predictions-list li { display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 1rem; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid var(--glass-border); font-size: 0.9rem; gap: 1rem; }
+        .predictions-list li.no-prediction { border-color: rgba(231, 76, 60, 0.25); background: rgba(231, 76, 60, 0.06); }
+        .predictions-list .pred-user { font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .predictions-list .pred-score { font-weight: 800; color: var(--primary); white-space: nowrap; }
+        .predictions-list li.no-prediction .pred-score { color: #e74c3c; font-weight: 600; font-size: 0.85rem; }
+        .predictions-list .pred-pts { font-weight: 600; color: var(--text-muted); font-size: 0.8rem; }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .match-card { padding: 1rem; }
+            .teams-row { gap: 0.5rem; justify-content: space-between; }
+            .team-name { font-size: 0.75rem; }
+            .flag { width: 30px; height: 30px; }
+            .admin-controls { padding: 0.5rem; gap: 0.5rem; }
+            .score-input { width: 45px; height: 40px; font-size: 1.2rem; }
+            .btn-process { width: 100%; padding: 0.8rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Administrador Polla Refurbi</h1>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-muted);">Ingresa los resultados oficiales para repartir puntos.</p>
+        
+        <div class="settings-zone">
+            <h2>⚙️ Configuración de Predicciones</h2>
+            <label class="settings-toggle">
+                <input type="checkbox" id="bloquear-al-iniciar" onchange="savePredictionConfig()">
+                <div>
+                    <span>Cerrar predicciones al iniciar el partido</span>
+                    <small>Cuando está activo, los usuarios no podrán guardar sus predicciones después de la hora de inicio programada. Puedes forzar el cierre manualmente en cada partido con el botón 🔒.</small>
+                </div>
+            </label>
+            <div id="settings-status" class="settings-status"></div>
+        </div>
+
+        <div class="predictions-zone" id="predictions-zone">
+            <h2>📋 Predicciones por Partido</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                Selecciona un partido para ver el pronóstico de cada participante.
+            </p>
+            <select id="predictions-match-select" onchange="loadMatchPredictions()">
+                <option value="">— Selecciona un partido —</option>
+            </select>
+            <div id="predictions-summary" class="predictions-summary"></div>
+            <ul id="predictions-list" class="predictions-list"></ul>
+        </div>
+
+        <div id="admin-match-list">
+            <p style="text-align: center;">Cargando partidos...</p>
+        </div>
+
+        <div class="participants-zone">
+            <h2>Gestionar Participantes</h2>
+            <div class="add-participant-form">
+                <input type="text" id="new-participant-name" placeholder="Nombre del nuevo participante" maxlength="50">
+                <button onclick="addNewParticipant()">Agregar Participante</button>
+            </div>
+            <div style="margin-top: 1.5rem;">
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Participantes actuales:</p>
+                <div class="participants-list" id="participants-list">
+                    <p style="color: var(--text-muted);">Cargando...</p>
+                </div>
+            </div>
+            <div id="participant-status" style="margin-top: 1rem; font-size: 0.8rem;"></div>
+        </div>
+
+        <div class="import-zone">
+            <h2>📅 Importar Fechas</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                Pega el JSON con las fechas actuales y haz clic para actualizar. Las horas serán convertidas a zona horaria de Colombia (UTC-5).
+            </p>
+            <textarea id="json-dates" placeholder='Pega el JSON aquí con formato: [{"fecha":"2026-06-11","partido":"México vs Sudáfrica","hora":"14:00"}, ...]'></textarea>
+            <button onclick="importDates()" id="import-btn">Actualizar Fechas en Firebase</button>
+            <div id="import-status"></div>
+        </div>
+
+        <div class="danger-zone">
+            <h2>Zona de Peligro</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                Esta acción eliminará <b>TODAS</b> las predicciones, reseteará los puntos de los usuarios a 0 y limpiará los resultados de los partidos. 
+                Úsalo solo para preparar la app para el torneo real.
+            </p>
+            <button class="btn-danger" id="reset-btn" onclick="resetApp()">Reiniciar Base de Datos</button>
+            <div id="reset-status" style="margin-top: 1rem; font-size: 0.8rem;"></div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="history-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; padding: 1rem; box-sizing: border-box;">
+        <div style="background: var(--dark-light); border: 1px solid var(--glass-border); border-radius: 16px; padding: 2rem; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; position: relative;">
+            <button onclick="closeHistoryModal()" style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: var(--text-muted); font-size: 2rem; cursor: pointer; line-height: 1;">&times;</button>
+            <h2 id="history-modal-title" style="margin-top: 0; color: var(--primary);">Historial de Predicciones</h2>
+            <div id="history-modal-content">
+                <p>Cargando...</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+        import { getFirestore, collection, query, getDocs, orderBy, doc, updateDoc, getDoc, where, writeBatch, increment, deleteDoc, serverTimestamp, setDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCAewfOmvGXYXRctwSe3ylWG5FMohGccWk",
+            authDomain: "refurbi-33690.firebaseapp.com",
+            projectId: "refurbi-33690",
+            storageBucket: "refurbi-33690.firebasestorage.app",
+            messagingSenderId: "964460492417",
+            appId: "1:964460492417:web:12df82471c478219543f80",
+            measurementId: "G-4PZKG80N8F"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const flagMapping = {
+            "Mexico": "mx", "South Africa": "za", "South Korea": "kr", "Czech Republic": "cz", "Canada": "ca", "Bosnia-Herzegovina": "ba", "USA": "us", "Paraguay": "py", "Qatar": "qa", "Switzerland": "ch", "Brazil": "br", "Morocco": "ma", "Haiti": "ht", "Scotland": "gb-sct", "Australia": "au", "Turkey": "tr", "Germany": "de", "Curaçao": "cw", "Netherlands": "nl", "Japan": "jp", "Ivory Coast": "ci", "Ecuador": "ec", "Sweden": "se", "Tunisia": "tn", "Spain": "es", "Cape Verde": "cv", "Belgium": "be", "Egypt": "eg", "Saudi Arabia": "sa", "Uruguay": "uy", "Iran": "ir", "New Zealand": "nz", "France": "fr", "Senegal": "sn", "Iraq": "iq", "Norway": "no", "Argentina": "ar", "Algeria": "dz", "Austria": "at", "Jordan": "jo", "Portugal": "pt", "DR Congo": "cd", "England": "gb-eng", "Croatia": "hr", "Ghana": "gh", "Panama": "pa", "Uzbekistan": "uz", "Colombia": "co"
+        };
+
+        let matchesCache = [];
+
+        async function loadAdminMatches() {
+            const list = document.getElementById('admin-match-list');
+            try {
+                const q = query(collection(db, "octavos"), orderBy("fecha", "asc"));
+                const snap = await getDocs(q);
+                list.innerHTML = '';
+                matchesCache = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                populatePredictionsSelect();
+                
+                snap.forEach(docSnap => {
+                    const m = docSnap.data();
+                    const isProcessed = m.procesado === true;
+                    const isBloqueado = m.bloqueado === true;
+                    const matchStarted = m.fecha.toDate() <= new Date();
+                    
+                    list.innerHTML += `
+                        <div class="match-card" id="card-${m.idEvent}" style="${isBloqueado ? 'border-color: #e74c3c;' : ''}">
+                            <div class="match-header">
+                                <span>ID: ${m.idEvent} - ${m.ronda}</span>
+                                <span>${m.fecha.toDate().toLocaleString('es-ES', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}</span>
+                                ${isBloqueado ? `<span style="color: #e74c3c; font-weight: 800;">🔒 PREDICCIONES CERRADAS</span>` : (matchStarted ? `<span style="color: #f1c40f; font-weight: 600;">En curso / finalizado</span>` : '')}
+                            </div>
+                            <div class="teams-row">
+                                <div class="team">
+                                    <img src="Pollamundial_files/${flagMapping[m.local] || 'flag_nd'}.png" class="flag">
+                                    <span class="team-name">${m.local}</span>
+                                </div>
+                                <div class="admin-controls">
+                                    <input type="number" id="real-local-${m.idEvent}" class="score-input" value="${m.goles_local ?? ''}">
+                                    <span>-</span>
+                                    <input type="number" id="real-visitante-${m.idEvent}" class="score-input" value="${m.goles_visitante ?? ''}">
+                                </div>
+                                <div class="team">
+                                    <img src="Pollamundial_files/${flagMapping[m.visitante] || 'flag_nd'}.png" class="flag">
+                                    <span class="team-name">${m.visitante}</span>
+                                </div>
+                            </div>
+                            <div class="status-msg" id="msg-${m.idEvent}">
+                                ${isProcessed ? '<span class="status-processed">PARTIDO PROCESADO ✅</span>' : ''}
+                            </div>
+                            <div class="admin-actions" id="actions-${m.idEvent}" style="display:flex; gap:10px; justify-content:center; flex-wrap: wrap;">
+                                ${!isProcessed ? 
+                                    `<button class="btn-process" onclick="processMatchResult('${m.idEvent}', false)">Procesar Puntos</button>` : 
+                                    `<button class="btn-process" style="background:#34495e; color:white;" onclick="enableEdit('${m.idEvent}')">Editar Resultado</button>`
+                                }
+                                <button class="btn-process" style="background:${isBloqueado ? '#27ae60' : '#e67e22'}; color:white;" onclick="toggleBloqueo('${m.idEvent}', ${isBloqueado})" title="Cierra o abre las predicciones de los usuarios para este partido">
+                                    ${isBloqueado ? '🔓 Abrir predicciones' : '🔒 Cerrar predicciones'}
+                                </button>
+                                <button class="btn-process" style="background:#9b59b6; color:white;" onclick="viewPredictionsForMatch('${m.idEvent}')">Ver Predicciones</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (e) { console.error(e); }
+        }
+
+        function populatePredictionsSelect() {
+            const select = document.getElementById('predictions-match-select');
+            const current = select.value;
+            select.innerHTML = '<option value="">— Selecciona un partido —</option>';
+            matchesCache.forEach(m => {
+                const date = m.fecha.toDate().toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+                select.innerHTML += `<option value="${m.idEvent}">${m.local} vs ${m.visitante} (${date})</option>`;
+            });
+            if (current && matchesCache.some(m => m.idEvent === current)) {
+                select.value = current;
+            }
+        }
+
+        window.viewPredictionsForMatch = function(matchId) {
+            document.getElementById('predictions-match-select').value = matchId;
+            loadMatchPredictions();
+            document.getElementById('predictions-zone').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+
+        window.loadMatchPredictions = async function() {
+            const matchId = document.getElementById('predictions-match-select').value;
+            const listEl = document.getElementById('predictions-list');
+            const summaryEl = document.getElementById('predictions-summary');
+
+            if (!matchId) {
+                listEl.innerHTML = '';
+                summaryEl.innerHTML = '';
+                return;
+            }
+
+            listEl.innerHTML = '<li style="justify-content:center; color: var(--text-muted);">Cargando...</li>';
+            summaryEl.innerHTML = '';
+
+            try {
+                const [predSnap, userSnap] = await Promise.all([
+                    getDocs(query(collection(db, "predicciones"), where("idPartido", "==", matchId))),
+                    getDocs(query(collection(db, "usuarios"), orderBy("nombre", "asc")))
+                ]);
+
+                const predsByUser = {};
+                predSnap.forEach(d => {
+                    const p = d.data();
+                    predsByUser[p.usuario] = p;
+                });
+
+                const match = matchesCache.find(m => m.idEvent === matchId);
+                const matchLabel = match ? `${match.local} vs ${match.visitante}` : matchId;
+
+                if (userSnap.empty) {
+                    listEl.innerHTML = '<li style="justify-content:center; color: var(--text-muted);">No hay participantes registrados.</li>';
+                    return;
+                }
+
+                let html = '';
+                let withPred = 0;
+
+                userSnap.forEach(d => {
+                    const user = d.data();
+                    const p = predsByUser[user.nombre];
+                    if (p) {
+                        withPred++;
+                        const pts = p.puntosGanados !== undefined
+                            ? `<span class="pred-pts">${p.puntosGanados} pts</span>`
+                            : '';
+                        html += `<li class="has-prediction"><span class="pred-user">${user.nombre}</span><span class="pred-score">${p.goles_local} - ${p.goles_visitante} ${pts}</span></li>`;
+                    } else {
+                        html += `<li class="no-prediction"><span class="pred-user">${user.nombre}</span><span class="pred-score">Sin predicción</span></li>`;
+                    }
+                });
+
+                listEl.innerHTML = html;
+                summaryEl.innerHTML = `<strong>${matchLabel}</strong> — ${withPred} de ${userSnap.size} participante${userSnap.size !== 1 ? 's' : ''} han pronosticado`;
+            } catch (e) {
+                console.error(e);
+                listEl.innerHTML = `<li style="justify-content:center; color: #e74c3c;">Error: ${e.message}</li>`;
+            }
+        };
+
+        async function loadPredictionConfig() {
+            try {
+                const snap = await getDoc(doc(db, "config", "polla"));
+                const config = snap.exists() ? snap.data() : {};
+                document.getElementById('bloquear-al-iniciar').checked = config.bloquearAlIniciar === true;
+            } catch (e) { console.error(e); }
+        }
+
+        window.savePredictionConfig = async function() {
+            const checkbox = document.getElementById('bloquear-al-iniciar');
+            const status = document.getElementById('settings-status');
+            try {
+                await setDoc(doc(db, "config", "polla"), {
+                    bloquearAlIniciar: checkbox.checked
+                }, { merge: true });
+                status.innerHTML = checkbox.checked
+                    ? '✅ Las predicciones se cerrarán automáticamente al iniciar cada partido.'
+                    : '✅ Cierre automático desactivado. Solo aplicará el bloqueo manual por partido.';
+                status.style.color = 'var(--primary)';
+                setTimeout(() => { status.innerHTML = ''; }, 3000);
+            } catch (e) {
+                console.error(e);
+                status.innerHTML = '❌ Error: ' + e.message;
+                status.style.color = '#e74c3c';
+            }
+        };
+
+        window.toggleBloqueo = async function(matchId, currentlyBlocked) {
+            const newState = !currentlyBlocked;
+            const action = newState ? 'cerrar' : 'abrir';
+            if (!confirm(`¿Deseas ${action} las predicciones de los usuarios para este partido?`)) return;
+
+            try {
+                await updateDoc(doc(db, "octavos", matchId), { bloqueado: newState });
+                loadAdminMatches();
+            } catch (e) {
+                console.error(e);
+                alert('Error al actualizar: ' + e.message);
+            }
+        };
+
+        window.enableEdit = function(matchId) {
+            document.getElementById(`real-local-${matchId}`).disabled = false;
+            document.getElementById(`real-visitante-${matchId}`).disabled = false;
+            document.getElementById(`actions-${matchId}`).innerHTML = `
+                <button class="btn-process" onclick="processMatchResult('${matchId}', true)">Guardar Corrección</button>
+                <button class="btn-process" style="background:#e74c3c; color:white;" onclick="loadAdminMatches()">Cancelar</button>
+            `;
+        };
+
+        async function getRankings() {
+            const uSnap = await getDocs(query(collection(db, "usuarios"), orderBy("puntos", "desc")));
+            let rank = 1;
+            let rankings = {};
+            uSnap.forEach(doc => {
+                rankings[doc.data().nombre] = rank;
+                rank++;
+            });
+            return rankings;
+        }
+
+        window.processMatchResult = async function(matchId, isCorrection) {
+            const gLocal = document.getElementById(`real-local-${matchId}`).value;
+            const gVisitante = document.getElementById(`real-visitante-${matchId}`).value;
+            const msg = document.getElementById(`msg-${matchId}`);
+
+            if (gLocal === "" || gVisitante === "") {
+                alert("Por favor ingresa ambos marcadores.");
+                return;
+            }
+
+            const resLocal = parseInt(gLocal);
+            const resVisitante = parseInt(gVisitante);
+
+            try {
+                msg.innerText = isCorrection ? "Recalculando puntos..." : "Procesando puntos...";
+                
+                const rankingsBefore = await getRankings();
+                
+                // 1. Buscar predicciones para este partido
+                const q = query(collection(db, "predicciones"), where("idPartido", "==", matchId));
+                const snapPreds = await getDocs(q);
+                
+                const batch = writeBatch(db);
+                let count = 0;
+
+                for (const predDoc of snapPreds.docs) {
+                    const p = predDoc.data();
+                    const prevPts = p.puntosGanados || 0;
+                    let newPts = 0;
+
+                    // Lógica de Puntos
+                    const exacto = (p.goles_local === resLocal && p.goles_visitante === resVisitante);
+                    const ganadorApostado = p.goles_local > p.goles_visitante ? 'local' : (p.goles_local < p.goles_visitante ? 'visitante' : 'empate');
+                    const ganadorReal = resLocal > resVisitante ? 'local' : (resLocal < resVisitante ? 'visitante' : 'empate');
+
+                    if (exacto) {
+                        newPts = 3;
+                    } else if (ganadorApostado === ganadorReal) {
+                        newPts = 1;
+                    }
+
+                    const diff = newPts - prevPts;
+
+                    if (diff !== 0) {
+                        const uQuery = query(collection(db, "usuarios"), where("nombre", "==", p.usuario));
+                        const uSnap = await getDocs(uQuery);
+                        if (!uSnap.empty) {
+                            batch.update(uSnap.docs[0].ref, { puntos: increment(diff) });
+                        }
+                    }
+
+                    // Actualizar puntos en la predicción para futuras correcciones
+                    batch.update(predDoc.ref, { puntosGanados: newPts });
+                    count++;
+                }
+
+                // 2. Actualizar el partido
+                batch.update(doc(db, "octavos", matchId), {
+                    goles_local: resLocal,
+                    goles_visitante: resVisitante,
+                    procesado: true
+                });
+
+                await batch.commit();
+
+                // 3. Actualizar tendencias
+                msg.innerText = "Actualizando posiciones...";
+                const rankingsAfter = await getRankings();
+                
+                const rankBatch = writeBatch(db);
+                const allUsers = await getDocs(collection(db, "usuarios"));
+                allUsers.forEach(doc => {
+                    const name = doc.data().nombre;
+                    const oldRank = rankingsBefore[name] || 0;
+                    const newRank = rankingsAfter[name] || 0;
+                    
+                    if (oldRank !== 0 && newRank !== 0) {
+                        const rankDiff = oldRank - newRank; // positivo = subió
+                        rankBatch.update(doc.ref, { tendencia: rankDiff });
+                    }
+                });
+                await rankBatch.commit();
+
+                msg.innerHTML = `<span class="status-processed">¡ÉXITO! ${isCorrection ? 'Corrección aplicada' : 'Puntos procesados'}. ✅</span>`;
+                setTimeout(() => loadAdminMatches(), 1500);
+
+            } catch (e) {
+                console.error(e);
+                msg.innerText = "Error: " + e.message;
+            }
+        };
+
+        window.resetApp = async function() {
+            const confirm1 = confirm("⚠️ ¿ESTÁS SEGURO? Esta acción es IRREVERSIBLE y borrará todas las predicciones actuales.");
+            if (!confirm1) return;
+            
+            const confirm2 = confirm("Confirmación final: ¿Realmente deseas resetear toda la Polla Refurbi para iniciar de cero?");
+            if (!confirm2) return;
+
+            const btn = document.getElementById('reset-btn');
+            const status = document.getElementById('reset-status');
+            
+            btn.disabled = true;
+            status.innerHTML = "Iniciando reset...";
+            status.style.color = "var(--text-muted)";
+
+            try {
+                const batch = writeBatch(db);
+
+                // 1. Eliminar todas las predicciones
+                status.innerHTML = "Eliminando predicciones...";
+                const predSnap = await getDocs(collection(db, "predicciones"));
+                predSnap.forEach(d => batch.delete(d.ref));
+
+                // 2. Resetear puntos de usuarios
+                status.innerHTML = "Reseteando puntos de usuarios...";
+                const userSnap = await getDocs(collection(db, "usuarios"));
+                userSnap.forEach(d => batch.update(d.ref, { puntos: 0 }));
+
+                // 3. Limpiar partidos
+                status.innerHTML = "Limpiando resultados de partidos...";
+                const matchSnap = await getDocs(collection(db, "octavos"));
+                matchSnap.forEach(d => {
+                    batch.update(d.ref, {
+                        goles_local: null,
+                        goles_visitante: null,
+                        procesado: false
+                    });
+                });
+
+                await batch.commit();
+                
+                status.innerHTML = "✅ ¡Base de datos reseteada con éxito!";
+                status.style.color = "var(--primary)";
+                
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
+
+            } catch (e) {
+                console.error(e);
+                status.innerHTML = "❌ Error: " + e.message;
+                status.style.color = "#e74c3c";
+                btn.disabled = false;
+            }
+        };
+
+        async function loadParticipants() {
+            const list = document.getElementById('participants-list');
+            try {
+                const q = query(collection(db, "usuarios"), orderBy("nombre", "asc"));
+                const snap = await getDocs(q);
+                list.innerHTML = '';
+                
+                if (snap.empty) {
+                    list.innerHTML = '<p style="color: var(--text-muted);">No hay participantes aún.</p>';
+                    return;
+                }
+
+                for (const doc of snap.docs) {
+                    const user = doc.data();
+                    
+                    // Contar predicciones del usuario
+                    const qPreds = query(collection(db, "predicciones"), where("usuario", "==", user.nombre));
+                    const snapPreds = await getDocs(qPreds);
+                    const predCount = snapPreds.size;
+                    
+                    const hasPredictions = predCount > 0;
+                    const predStatus = hasPredictions
+                        ? `<span style="color: var(--primary); font-weight: 600;">✓ ${predCount} predicción${predCount !== 1 ? 'es' : ''}</span>` 
+                        : `<span style="color: #e74c3c; font-weight: 600;">○ Sin predicciones</span>`;
+                    
+                    list.innerHTML += `
+                        <div class="participant-badge${hasPredictions ? '' : ' no-predictions'}">
+                            <span style="flex: 1;">
+                                <strong>${user.nombre}</strong><br>
+                                <span style="font-size: 0.85rem;">${predStatus} • ${user.puntos || 0} pts</span>
+                            </span>
+                            <div style="display: flex; gap: 0.5rem; flex-direction: column;">
+                                <button style="background: #3498db;" onclick="viewUserHistory('${user.nombre}')">Historial</button>
+                                <button onclick="deleteParticipant('${user.nombre}')">Eliminar</button>
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (e) { console.error(e); }
+        }
+
+        window.addNewParticipant = async function() {
+            const input = document.getElementById('new-participant-name');
+            const name = input.value.trim();
+            const status = document.getElementById('participant-status');
+
+            if (!name) {
+                status.innerHTML = '❌ Por favor ingresa un nombre.';
+                status.style.color = '#e74c3c';
+                return;
+            }
+
+            try {
+                // Verificar si ya existe
+                const q = query(collection(db, "usuarios"), where("nombre", "==", name));
+                const snap = await getDocs(q);
+                if (!snap.empty) {
+                    status.innerHTML = '❌ El participante ya existe.';
+                    status.style.color = '#e74c3c';
+                    return;
+                }
+
+                // Crear nuevo participante
+                const newUser = {
+                    nombre: name,
+                    puntos: 0,
+                    createdAt: serverTimestamp()
+                };
+
+                const docRef = doc(collection(db, "usuarios"), name);
+                await setDoc(docRef, newUser);
+
+                input.value = '';
+                status.innerHTML = `✅ ¡${name} ha sido agregado!`;
+                status.style.color = 'var(--primary)';
+                setTimeout(() => {
+                    status.innerHTML = '';
+                    loadParticipants();
+                }, 1500);
+            } catch (e) {
+                console.error(e);
+                status.innerHTML = '❌ Error: ' + e.message;
+                status.style.color = '#e74c3c';
+            }
+        };
+
+        window.deleteParticipant = async function(name) {
+            if (!confirm(`⚠️ ¿ELIMINAR a ${name} COMPLETAMENTE? Se borrarán todas sus predicciones y datos.`)) return;
+
+            const status = document.getElementById('participant-status');
+            try {
+                const batch = writeBatch(db);
+
+                // 1. Eliminar participante
+                batch.delete(doc(db, "usuarios", name));
+
+                // 2. Eliminar todas sus predicciones
+                const qPreds = query(collection(db, "predicciones"), where("usuario", "==", name));
+                const snapPreds = await getDocs(qPreds);
+                snapPreds.forEach(d => batch.delete(d.ref));
+
+                await batch.commit();
+                status.innerHTML = `✅ ${name} y todas sus predicciones han sido eliminados.`;
+                status.style.color = 'var(--primary)';
+                setTimeout(() => {
+                    status.innerHTML = '';
+                    loadParticipants();
+                }, 1500);
+            } catch (e) {
+                console.error(e);
+                status.innerHTML = '❌ Error: ' + e.message;
+                status.style.color = '#e74c3c';
+            }
+        };
+
+        window.closeHistoryModal = function() {
+            document.getElementById('history-modal').style.display = 'none';
+        };
+
+        window.viewUserHistory = async function(userName) {
+            const modal = document.getElementById('history-modal');
+            const title = document.getElementById('history-modal-title');
+            const content = document.getElementById('history-modal-content');
+            
+            title.textContent = `Historial de ${userName}`;
+            content.innerHTML = '<p style="text-align:center; color:var(--text-muted);">Cargando historial...</p>';
+            modal.style.display = 'flex';
+
+            try {
+                // Fetch predictions for user
+                const qPreds = query(collection(db, "predicciones"), where("usuario", "==", userName));
+                const snapPreds = await getDocs(qPreds);
+                
+                if (snapPreds.empty) {
+                    content.innerHTML = '<p style="text-align:center; color:var(--text-muted);">No hay predicciones para este usuario.</p>';
+                    return;
+                }
+
+                // Get all matches for reference
+                const matchesMap = {};
+                matchesCache.forEach(m => {
+                    matchesMap[m.idEvent] = m;
+                });
+
+                let historyHtml = '<ul class="predictions-list" style="margin-top: 1rem;">';
+                
+                const preds = [];
+                snapPreds.forEach(doc => preds.push(doc.data()));
+
+                // Sort predictions by match date (newest first)
+                preds.sort((a, b) => {
+                    const matchA = matchesMap[a.idPartido];
+                    const matchB = matchesMap[b.idPartido];
+                    if (!matchA || !matchB) return 0;
+                    return matchB.fecha.toDate() - matchA.fecha.toDate();
+                });
+
+                let totalPts = 0;
+
+                preds.forEach(p => {
+                    const match = matchesMap[p.idPartido];
+                    if (!match) return;
+                    
+                    const matchLabel = `${match.local} vs ${match.visitante}`;
+                    const pts = p.puntosGanados !== undefined ? p.puntosGanados : 0;
+                    totalPts += pts;
+                    
+                    const isProcessed = match.procesado === true;
+                    
+                    let resultHtml = '';
+                    if (isProcessed) {
+                        resultHtml = `<div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
+                            Resultado real: ${match.goles_local} - ${match.goles_visitante}
+                        </div>`;
+                    }
+                    
+                    historyHtml += `
+                        <li style="flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 1rem; border: 1px solid rgba(255,255,255,0.05);">
+                            <div style="display: flex; justify-content: space-between; width: 100%;">
+                                <strong style="color: var(--text);">${matchLabel}</strong>
+                                <span class="pred-pts" style="background: rgba(46, 204, 113, 0.1); padding: 0.2rem 0.6rem; border-radius: 4px; color: var(--primary); font-weight: 800;">${pts} pts</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                                <span style="font-size: 0.95rem;">Pronóstico: <b style="color: white;">${p.goles_local} - ${p.goles_visitante}</b></span>
+                                ${!isProcessed ? '<span style="font-size: 0.8rem; color: #f1c40f; padding: 0.1rem 0.4rem; border-radius: 4px; border: 1px solid rgba(241,196,15,0.3);">Pendiente</span>' : ''}
+                            </div>
+                            ${resultHtml}
+                        </li>
+                    `;
+                });
+                
+                historyHtml += '</ul>';
+                historyHtml += `<div style="margin-top: 1.5rem; text-align: right; font-weight: 800; font-size: 1.2rem; color: var(--primary); padding-top: 1rem; border-top: 1px solid var(--glass-border);">Total acumulado: ${totalPts} pts</div>`;
+                
+                content.innerHTML = historyHtml;
+                
+            } catch (e) {
+                console.error(e);
+                content.innerHTML = `<p style="color: #e74c3c; text-align: center;">Error: ${e.message}</p>`;
+            }
+        };
+
+        const teamNameMapping = {
+            "Sudáfrica": "South Africa", "Corea del Sur": "South Korea", "República Checa": "Czech Republic",
+            "Canadá": "Canada", "Bosnia y Herzegovina": "Bosnia-Herzegovina", "Bosnia y Herz.": "Bosnia-Herzegovina",
+            "Estados Unidos": "USA", "Paraguay": "Paraguay", "Qatar": "Qatar", "Suiza": "Switzerland",
+            "Brasil": "Brazil", "Marruecos": "Morocco", "Haití": "Haiti", "Escocia": "Scotland",
+            "Australia": "Australia", "Turquía": "Turkey", "Alemania": "Germany", "Curazao": "Curaçao",
+            "Países Bajos": "Netherlands", "Japón": "Japan", "Costa de Marfil": "Ivory Coast",
+            "Ecuador": "Ecuador", "Suecia": "Sweden", "Túnez": "Tunisia", "España": "Spain",
+            "Cabo Verde": "Cape Verde", "Bélgica": "Belgium", "Egipto": "Egypt",
+            "Arabia Saudita": "Saudi Arabia", "Uruguay": "Uruguay", "Irán": "Iran",
+            "Nueva Zelanda": "New Zealand", "Francia": "France", "Senegal": "Senegal",
+            "Irak": "Iraq", "Noruega": "Norway", "Argentina": "Argentina", "Argelia": "Algeria",
+            "Austria": "Austria", "Jordania": "Jordan", "Portugal": "Portugal",
+            "RD Congo": "DR Congo", "Inglaterra": "England", "Croacia": "Croatia",
+            "Ghana": "Ghana", "Panamá": "Panama", "Uzbekistán": "Uzbekistan", "Colombia": "Colombia",
+            "México": "Mexico"
+        };
+
+        window.importDates = async function() {
+            const jsonInput = document.getElementById('json-dates').value.trim();
+            const statusDiv = document.getElementById('import-status');
+            const importBtn = document.getElementById('import-btn');
+
+            if (!jsonInput) {
+                statusDiv.className = 'import-status error';
+                statusDiv.innerHTML = '❌ Por favor pega el JSON primero.';
+                return;
+            }
+
+            try {
+                const dates = JSON.parse(jsonInput);
+                
+                if (!Array.isArray(dates)) {
+                    statusDiv.className = 'import-status error';
+                    statusDiv.innerHTML = '❌ El JSON debe ser un array.';
+                    return;
+                }
+
+                importBtn.disabled = true;
+                statusDiv.className = 'import-status success';
+                statusDiv.innerHTML = `⏳ Procesando ${dates.length} partidos...`;
+
+                // Cargar todos los partidos de una vez
+                const allMatches = await getDocs(collection(db, "octavos"));
+                const matchesMap = {};
+                
+                allMatches.forEach(doc => {
+                    const m = doc.data();
+                    matchesMap[`${m.local}|${m.visitante}`] = doc;
+                    matchesMap[`${m.visitante}|${m.local}`] = doc;
+                });
+
+                let updated = 0;
+                let errors = [];
+                const batch = writeBatch(db);
+
+                for (const entry of dates) {
+                    try {
+                        // Parsear los equipos del string "partido"
+                        const partes = entry.partido.split(' vs ');
+                        if (partes.length !== 2) {
+                            errors.push(`Formato inválido: "${entry.partido}"`);
+                            continue;
+                        }
+
+                        const teamName1 = partes[0].trim();
+                        const teamName2 = partes[1].trim();
+                        const team1 = teamNameMapping[teamName1] || teamName1;
+                        const team2 = teamNameMapping[teamName2] || teamName2;
+
+                        // Buscar en el mapa
+                        const key = `${team1}|${team2}`;
+                        const matchDoc = matchesMap[key];
+
+                        if (!matchDoc) {
+                            errors.push(`No encontrado: ${entry.partido}`);
+                            continue;
+                        }
+
+                        // Actualizar fecha
+                        const fechaUTC = construirFechaUTC(entry.fecha, entry.hora);
+                        batch.update(matchDoc.ref, { fecha: fechaUTC });
+                        updated++;
+
+                    } catch (e) {
+                        errors.push(`Error en "${entry.partido}": ${e.message}`);
+                    }
+                }
+
+                await batch.commit();
+
+                let mensaje = `✅ Se actualizaron ${updated} partidos.`;
+                if (errors.length > 0) {
+                    mensaje += `<br>⚠️ ${errors.length} errores: ${errors.slice(0, 3).join(', ')}${errors.length > 3 ? '...' : ''}`;
+                }
+
+                statusDiv.className = 'import-status success';
+                statusDiv.innerHTML = mensaje;
+                document.getElementById('json-dates').value = '';
+
+                setTimeout(() => {
+                    loadAdminMatches();
+                    importBtn.disabled = false;
+                }, 1500);
+
+            } catch (e) {
+                console.error(e);
+                statusDiv.className = 'import-status error';
+                statusDiv.innerHTML = `❌ Error al parsear JSON: ${e.message}`;
+                importBtn.disabled = false;
+            }
+        };
+
+        function construirFechaUTC(fechaStr, horaStr) {
+            // fechaStr: "2026-06-11", horaStr: "14:00"
+            // Colombia está en UTC-5
+            // Si en Colombia son las 14:00, en UTC son las 19:00 (14 + 5)
+            
+            const [año, mes, día] = fechaStr.split('-');
+            const [horas, minutos] = horaStr.split(':');
+            
+            // Calcular hora UTC
+            let horasUTC = parseInt(horas) + 5;
+            let díaUTC = parseInt(día);
+            
+            // Si superamos 24 horas, cambiar al día siguiente
+            if (horasUTC >= 24) {
+                horasUTC -= 24;
+                díaUTC += 1;
+            }
+            
+            // Crear timestamp en UTC usando Date.UTC()
+            return new Date(Date.UTC(año, parseInt(mes) - 1, díaUTC, horasUTC, parseInt(minutos), 0));
+        }
+
+        loadPredictionConfig();
+        loadAdminMatches();
+        loadParticipants();
+    </script>
+</body>
+</html>

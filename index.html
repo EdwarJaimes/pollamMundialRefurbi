@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polla Refurbi - La mejor polla mundialista</title>
+    <meta name="description"
+        content="Organiza tu polla del mundial de forma fácil, rápida y divertida. ¡La mejor experiencia para ti y tus amigos!">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Profile Selection Screen -->
+    <div id="profile-selection" class="profile-overlay">
+        <div class="profile-container">
+            <h2 id="title-profiles">Polla Mundialista 2026</h2>
+            <p id="title-subtitle">¿Quién está jugando?</p>
+
+            <div style="margin-bottom: 2rem;">
+                <button id="quick-view-btn" class="btn-secondary" onclick="toggleQuickLeaderboard()" style="width: 100%; border-color: var(--secondary); color: var(--secondary);">
+                    Ver Tabla de Clasificación 📊
+                </button>
+
+                <button id="quick-predictions-btn" class="btn-secondary" onclick="toggleQuickPredictions()" style="width: 100%; margin-top: 0.75rem; border-color: #9b59b6; color: #9b59b6;">
+                    Ver Predicciones por Partido 📋
+                </button>
+                
+                <div id="quick-leaderboard" class="hidden" style="margin-top: 1rem; animation: fadeIn 0.3s ease-out; max-height: 400px; overflow-y: auto; border-radius: 16px; background: rgba(0,0,0,0.2);">
+                    <table class="leaderboard-table" style="font-size: 0.9rem;">
+                        <thead>
+                            <tr>
+                                <th class="rank-col" style="padding: 0.8rem;">Pos</th>
+                                <th class="name-col" style="padding: 0.8rem;">Participante</th>
+                                <th class="points-col" style="padding: 0.8rem;">Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quick-leaderboard-body">
+                            <!-- Se cargará dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="quick-predictions" class="hidden quick-predictions-panel">
+                    <select id="quick-predictions-select" class="quick-predictions-select" onchange="loadPublicMatchPredictions()">
+                        <option value="">— Selecciona un partido —</option>
+                    </select>
+                    <p id="quick-predictions-summary" class="quick-predictions-summary"></p>
+                    <div id="quick-predictions-official" class="quick-predictions-official hidden"></div>
+                    <ul id="quick-predictions-list" class="quick-predictions-list"></ul>
+                </div>
+            </div>
+
+            <div id="profiles-list" class="profile-grid">
+                <!-- Los perfiles se cargarán dinámicamente aquí -->
+                <p style="color: var(--text-muted);">Cargando participantes...</p>
+            </div>
+            <button class="btn-secondary" style="margin-top: 3rem;" onclick="goToAdmin()">Acceso Administrador</button>
+        </div>
+    </div>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <div class="greeting-wrapper">
+            <h1 id="user-greeting">Hola, Invitado</h1>
+            <p id="user-points">0 Puntos</p>
+            <p>Has ingresado a Polla Refurbi</p>
+            <div style="display:flex; gap:10px; justify-content:center; margin-top: 1rem;">
+                <button id="change-profile-btn" class="btn-secondary" onclick="location.reload()">Cambiar de
+                    Perfil</button>
+                <button id="rules-btn" class="btn-secondary" onclick="showRules()">Reglas</button>
+            </div>
+        </div>
+
+        <section id="prediction-screen">
+            <div class="section-header">
+                <h2>Tus Predicciones</h2>
+                <p>Completa tus marcadores para cada partido.</p>
+            </div>
+            <div id="match-list" class="match-list">
+                <!-- Los partidos se cargarán aquí -->
+                <p>Cargando partidos...</p>
+            </div>
+        </section>
+
+        <section id="leaderboard-screen" class="hidden">
+            <div class="section-header">
+                <h2>Tabla Clasificatoria</h2>
+                <p>Ranking de los participantes.</p>
+            </div>
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th class="rank-col">Pos</th>
+                        <th class="name-col">Participante</th>
+                        <th class="points-col">Puntos</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Filas dinámicas -->
+                </tbody>
+            </table>
+            <button class="btn-secondary" onclick="toggleView('prediction')"
+                style="margin-top: 2rem; width: 100%;">Modificar mis Predicciones</button>
+        </section>
+
+        <div class="floating-nav" id="nav-controls">
+            <button class="btn-float" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                title="Ir arriba">▲</button>
+            <button class="btn-float" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})"
+                title="Ir abajo">▼</button>
+        </div>
+
+    </div>
+
+    <!-- Rules Modal -->
+    <div id="rules-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 style="color: var(--primary);">Reglas del Juego</h2>
+            <div class="rules-list">
+                <div class="rule-item">
+                    <div class="rule-pts">+3</div>
+                    <div class="rule-desc"><strong>Resultado Exacto</strong><br>Aciertas el marcador final del partido.
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-pts">+1</div>
+                    <div class="rule-desc"><strong>Acierta Ganador</strong><br>Aciertas quién gana o si hay empate, pero
+                        no el marcador.</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-pts">0</div>
+                    <div class="rule-desc"><strong>Fallo Total</strong><br>No aciertas ni el ganador ni el marcador.
+                    </div>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="closeRules()"
+                style="padding: 0.8rem 2rem; border-radius: 12px; width: 100%;">¡Entendido!</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+        import { getFirestore, collection, query, where, getDocs, orderBy, doc, setDoc, getDoc, serverTimestamp, limit } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCAewfOmvGXYXRctwSe3ylWG5FMohGccWk",
+            authDomain: "refurbi-33690.firebaseapp.com",
+            projectId: "refurbi-33690",
+            storageBucket: "refurbi-33690.firebasestorage.app",
+            messagingSenderId: "964460492417",
+            appId: "1:964460492417:web:12df82471c478219543f80",
+            measurementId: "G-4PZKG80N8F"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        window.showRules = function () {
+            document.getElementById('rules-modal').classList.add('active');
+        };
+
+        window.closeRules = function () {
+            document.getElementById('rules-modal').classList.remove('active');
+        };
+
+        const teamTranslations = {
+            "Mexico": "México", "South Africa": "Sudáfrica", "South Korea": "Corea del Sur",
+            "Czech Republic": "República Checa", "Canada": "Canadá", "Bosnia-Herzegovina": "Bosnia y Herz.",
+            "USA": "EE. UU.", "Paraguay": "Paraguay", "Qatar": "Catar", "Switzerland": "Suiza",
+            "Brazil": "Brasil", "Morocco": "Marruecos", "Haiti": "Haití", "Scotland": "Escocia",
+            "Australia": "Australia", "Turkey": "Turquía", "Germany": "Alemania", "Curaçao": "Curazao",
+            "Netherlands": "Países Bajos", "Japan": "Japón", "Ivory Coast": "Costa de Marfil",
+            "Ecuador": "Ecuador", "Sweden": "Suecia", "Tunisia": "Túnez", "Spain": "España",
+            "Cape Verde": "Cabo Verde", "Belgium": "Bélgica", "Egypt": "Egipto",
+            "Saudi Arabia": "Arabia Saudita", "Uruguay": "Uruguay", "Iran": "Irán",
+            "New Zealand": "Nueva Zelanda", "France": "Francia", "Senegal": "Senegal",
+            "Iraq": "Irak", "Norway": "Noruega", "Argentina": "Argentina", "Algeria": "Argelia",
+            "Austria": "Austria", "Jordan": "Jordania", "Portugal": "Portugal",
+            "DR Congo": "RD Congo", "England": "Inglaterra", "Croatia": "Croacia",
+            "Ghana": "Ghana", "Panama": "Panamá", "Uzbekistan": "Uzbekistán", "Colombia": "Colombia"
+        };
+
+        let currentUser = null;
+        let appConfig = { bloquearAlIniciar: false };
+        let publicMatchesCache = [];
+        window.nextMatchToScroll = null;
+
+        async function loadAppConfig() {
+            try {
+                const snap = await getDoc(doc(db, "config", "polla"));
+                if (snap.exists()) {
+                    appConfig = { ...appConfig, ...snap.data() };
+                }
+            } catch (e) { console.error(e); }
+        }
+
+        function isPredictionLocked(match) {
+            if (match.procesado === true) return true;
+            if (match.bloqueado === true) return true;
+            if (appConfig.bloquearAlIniciar && match.fecha.toDate() <= new Date()) return true;
+            return false;
+        }
+
+        function canEditPrediction(match, isSaved) {
+            if (isPredictionLocked(match)) return false;
+            return !isSaved;
+        }
+
+        function translateTeam(name) {
+            return teamTranslations[name] || name;
+        }
+
+        const flagMapping = {
+            "Mexico": "mx", "South Africa": "za", "South Korea": "kr", "Czech Republic": "cz",
+            "Canada": "ca", "Bosnia-Herzegovina": "ba", "USA": "us", "Paraguay": "py",
+            "Qatar": "qa", "Switzerland": "ch", "Brazil": "br", "Morocco": "ma",
+            "Haiti": "ht", "Scotland": "gb-sct", "Australia": "au", "Turkey": "tr",
+            "Germany": "de", "Curaçao": "cw", "Netherlands": "nl", "Japan": "jp",
+            "Ivory Coast": "ci", "Ecuador": "ec", "Sweden": "se", "Tunisia": "tn",
+            "Spain": "es", "Cape Verde": "cv", "Belgium": "be", "Egypt": "eg",
+            "Saudi Arabia": "sa", "Uruguay": "uy", "Iran": "ir", "New Zealand": "nz",
+            "France": "fr", "Senegal": "sn", "Iraq": "iq", "Norway": "no",
+            "Argentina": "ar", "Algeria": "dz", "Austria": "at", "Jordan": "jo",
+            "Portugal": "pt", "DR Congo": "cd", "England": "gb", "Croatia": "hr",
+            "Ghana": "gh", "Panama": "pa", "Uzbekistan": "uz", "Colombia": "co"
+        };
+
+        function getFlagUrl(teamName) {
+            const code = flagMapping[teamName] || "flag_nd";
+            return `Pollamundial_files/${code}.png`;
+        }
+
+        // Function to load profiles
+        async function loadProfiles() {
+            const profilesContainer = document.getElementById('profiles-list');
+            try {
+                const q = query(collection(db, "usuarios"), orderBy("nombre", "asc"));
+                const querySnapshot = await getDocs(q);
+                profilesContainer.innerHTML = '';
+                querySnapshot.forEach((doc) => {
+                    const user = doc.data();
+                    profilesContainer.innerHTML += `
+                        <div class="profile-item" onclick="selectProfile('${user.nombre}')">
+                            <div class="avatar">${user.nombre.charAt(0).toUpperCase()}</div>
+                            <span>${user.nombre}</span>
+                        </div>`;
+                });
+            } catch (e) { console.error(e); }
+        }
+
+        // Function to change score locally
+        window.changeScore = function (matchId, team, delta) {
+            const label = document.getElementById(`score-${team}-${matchId}`);
+            let currentStr = label.innerText;
+
+            let current;
+            if (currentStr === "-") {
+                // First interaction sets it to 0
+                current = 0;
+            } else {
+                current = parseInt(currentStr);
+                current = Math.max(0, current + delta);
+            }
+
+            label.innerText = current;
+            label.classList.add('pulse');
+            setTimeout(() => label.classList.remove('pulse'), 200);
+
+            // Enable save button if both scores are set
+            const otherTeam = team === 'local' ? 'visitante' : 'local';
+            const otherScore = document.getElementById(`score-${otherTeam}-${matchId}`).innerText;
+            const saveBtn = document.getElementById(`btn-save-${matchId}`);
+            if (saveBtn && otherScore !== "-") {
+                saveBtn.disabled = false;
+            }
+
+            // Update colors based on the new score
+            updateMatchVisuals(matchId);
+            updatePronosticoSummary(matchId);
+        };
+
+        function updatePronosticoSummary(matchId) {
+            const summary = document.getElementById(`pronostico-${matchId}`);
+            if (!summary) return;
+
+            const local = document.getElementById(`score-local-${matchId}`).innerText;
+            const visitante = document.getElementById(`score-visitante-${matchId}`).innerText;
+
+            if (local === "-" || visitante === "-") {
+                summary.innerText = "—";
+            } else {
+                summary.innerText = `${local} - ${visitante}`;
+            }
+        }
+
+        window.updateMatchVisuals = function(matchId) {
+            const scoreLocal = parseInt(document.getElementById(`score-local-${matchId}`).innerText) || 0;
+            const scoreVisitante = parseInt(document.getElementById(`score-visitante-${matchId}`).innerText) || 0;
+            
+            const stepperLocal = document.getElementById(`score-local-${matchId}`).parentElement;
+            const stepperVisitante = document.getElementById(`score-visitante-${matchId}`).parentElement;
+
+            // Remove existing classes
+            stepperLocal.classList.remove('win', 'draw');
+            stepperVisitante.classList.remove('win', 'draw');
+
+            // If scores are not numbers (still "-"), don't apply colors
+            if (isNaN(scoreLocal) || isNaN(scoreVisitante) || 
+                document.getElementById(`score-local-${matchId}`).innerText === "-" ||
+                document.getElementById(`score-visitante-${matchId}`).innerText === "-") {
+                return;
+            }
+
+            if (scoreLocal > scoreVisitante) {
+                stepperLocal.classList.add('win');
+            } else if (scoreVisitante > scoreLocal) {
+                stepperVisitante.classList.add('win');
+            } else {
+                // It's a draw
+                stepperLocal.classList.add('draw');
+                stepperVisitante.classList.add('draw');
+            }
+        };
+
+        // Function to load matches and existing predictions
+        async function loadMatchesForUser(userName) {
+            const matchList = document.getElementById('match-list');
+            matchList.innerHTML = '<p>Cargando partidos...</p>';
+
+            try {
+                await loadAppConfig();
+
+                // Fetch ALL matches
+                const qMatches = query(collection(db, "octavos"), orderBy("fecha", "asc"));
+                const snapMatches = await getDocs(qMatches);
+
+                // Fetch existing predictions for this user
+                const qPreds = query(collection(db, "predicciones"), where("usuario", "==", userName));
+                const snapPreds = await getDocs(qPreds);
+                const predsMap = {};
+                snapPreds.forEach(d => {
+                    const p = d.data();
+                    predsMap[p.idPartido] = p;
+                });
+
+                matchList.innerHTML = '';
+                
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                window.nextMatchToScroll = null;
+
+                snapMatches.forEach(docSnap => {
+                    const match = docSnap.data();
+                    const matchDate = match.fecha.toDate();
+                    
+                    if (!window.nextMatchToScroll && matchDate >= today) {
+                        window.nextMatchToScroll = match.idEvent;
+                    }
+                    
+                    const pred = predsMap[match.idEvent] || {};
+                    const date = match.fecha.toDate().toLocaleString('es-ES', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+
+                    const isMatchPlayed = match.procesado === true;
+                    const isLocked = isPredictionLocked(match);
+                    const isSaved = pred.idPartido !== undefined;
+                    const canEdit = canEditPrediction(match, isSaved);
+                    const predLocal = pred.goles_local !== undefined ? pred.goles_local : "-";
+                    const predVisitante = pred.goles_visitante !== undefined ? pred.goles_visitante : "-";
+                    const saveBtnId = `btn-save-${match.idEvent}`;
+                    const lockedReason = isMatchPlayed ? '' : (match.bloqueado ? 'cerradas por el administrador' : (appConfig.bloquearAlIniciar && match.fecha.toDate() <= new Date() ? 'el partido ya inició' : ''));
+
+                    const pronosticoHtml = isSaved
+                        ? `<div class="prediction-summary">Tu pronóstico: <strong>${pred.goles_local} - ${pred.goles_visitante}</strong></div>`
+                        : (isLocked || isMatchPlayed
+                            ? `<div class="prediction-summary empty">Tu pronóstico: <strong>Sin pronóstico</strong></div>`
+                            : `<div class="prediction-summary">Tu pronóstico: <strong id="pronostico-${match.idEvent}">—</strong></div>`);
+
+                    const officialHtml = isMatchPlayed
+                        ? `<div class="official-result">Resultado oficial: <strong>${match.goles_local} - ${match.goles_visitante}</strong> ⚽</div>`
+                        : '';
+
+                    matchList.innerHTML += `
+                        <div class="match-card" data-id="${match.idEvent}" id="card-${match.idEvent}">
+                            <div class="match-info">
+                                <span>${match.ronda}</span>
+                                <span>${date}</span>
+                                ${isMatchPlayed ? `<span style="color: #e74c3c; font-weight: 800; font-size: 0.75rem;">⚽ JUGADO</span>` : (isLocked ? `<span style="color: #f1c40f; font-weight: 800; font-size: 0.75rem;">🔒 CERRADO</span>` : '')}
+                            </div>
+                            <div class="match-body">
+                                <div class="scores-summary">
+                                    ${pronosticoHtml}
+                                    ${officialHtml}
+                                </div>
+                                <div class="match-teams">
+                                    <div class="team" data-team="local">
+                                        <img src="${getFlagUrl(match.local)}" class="flag" onerror="this.src='Pollamundial_files/flag_nd.png'" alt="${match.local}">
+                                        <span>${translateTeam(match.local)}</span>
+                                        <div class="stepper ${!canEdit ? 'locked' : ''}">
+                                            <span class="score-label" id="score-local-${match.idEvent}">${predLocal}</span>
+                                            ${canEdit ? `
+                                            <div class="stepper-btns">
+                                                <button class="btn-step" onclick="changeScore('${match.idEvent}', 'local', -1)">-</button>
+                                                <button class="btn-step" onclick="changeScore('${match.idEvent}', 'local', 1)">+</button>
+                                            </div>` : ''}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="vs-badge">VS</div>
+                                    
+                                    <div class="team" data-team="visitante">
+                                        <img src="${getFlagUrl(match.visitante)}" class="flag" onerror="this.src='Pollamundial_files/flag_nd.png'" alt="${match.visitante}">
+                                        <span>${translateTeam(match.visitante)}</span>
+                                        <div class="stepper ${!canEdit ? 'locked' : ''}">
+                                            <span class="score-label" id="score-visitante-${match.idEvent}">${predVisitante}</span>
+                                            ${canEdit ? `
+                                            <div class="stepper-btns">
+                                                <button class="btn-step" onclick="changeScore('${match.idEvent}', 'visitante', -1)">-</button>
+                                                <button class="btn-step" onclick="changeScore('${match.idEvent}', 'visitante', 1)">+</button>
+                                            </div>` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="match-footer" style="margin-top: 1.5rem; text-align: center;">
+                                    ${isMatchPlayed ? '' : (isLocked ? `
+                                        <div style="color: #f1c40f; font-weight: 800; font-size: 0.8rem; letter-spacing: 1px;">
+                                            ${isSaved ? 'PREDICCIÓN CERRADA ✅' : 'SIN PREDICCIÓN — CERRADO'}${lockedReason ? ` (${lockedReason})` : ''}
+                                        </div>
+                                    ` : (canEdit ? `
+                                        <button id="${saveBtnId}" class="btn-primary" 
+                                            style="padding: 0.6rem 1.2rem; border-radius: 10px; font-size: 0.85rem; width: 100%;" 
+                                            onclick="saveIndividualPrediction('${match.idEvent}', ${isSaved})"
+                                            ${predLocal === "-" ? 'disabled' : ''}>
+                                            ${isSaved ? 'Actualizar Predicción' : 'Guardar Predicción'}
+                                        </button>
+                                    ` : `
+                                        <div style="color: var(--primary); font-weight: 800; font-size: 0.8rem; letter-spacing: 1px;">
+                                            PREDICCIÓN GUARDADA ✅
+                                        </div>
+                                    `))}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                // Apply initial colors
+                snapMatches.forEach(docSnap => {
+                    updateMatchVisuals(docSnap.data().idEvent);
+                });
+            } catch (e) { console.error(e); }
+        }
+
+        // Function to toggle between views
+        window.toggleView = function (view) {
+            const predScreen = document.getElementById('prediction-screen');
+            const leadScreen = document.getElementById('leaderboard-screen');
+            const navControls = document.getElementById('nav-controls');
+            const changeProfileBtn = document.getElementById('change-profile-btn');
+            const rulesBtn = document.getElementById('rules-btn');
+            // saveBar removed
+
+            if (view === 'leaderboard') {
+                predScreen.classList.add('hidden');
+                leadScreen.classList.remove('hidden');
+                navControls.classList.add('hidden');
+                changeProfileBtn.classList.add('hidden');
+                rulesBtn.classList.remove('hidden'); // Ensure rules stay
+                showLeaderboard();
+            } else {
+                predScreen.classList.remove('hidden');
+                leadScreen.classList.add('hidden');
+                navControls.classList.remove('hidden');
+                changeProfileBtn.classList.remove('hidden');
+                rulesBtn.classList.remove('hidden');
+                
+                if (window.nextMatchToScroll) {
+                    setTimeout(() => {
+                        const card = document.getElementById('card-' + window.nextMatchToScroll);
+                        if (card) {
+                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                    }, 100);
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+        };
+
+        // Function to fetch and display leaderboard
+        async function showLeaderboard() {
+            const body = document.getElementById('leaderboard-body');
+            body.innerHTML = '<tr><td colspan="3" style="text-align:center">Cargando ranking...</td></tr>';
+
+            try {
+                const q = query(collection(db, "usuarios"), orderBy("puntos", "desc"));
+                const snap = await getDocs(q);
+                body.innerHTML = '';
+
+                let rank = 1;
+                snap.forEach(docSnap => {
+                    const user = docSnap.data();
+                    let rankIcon = rank;
+                    if (rank === 1) rankIcon = '<span class="rank-1">🥇</span>';
+                    if (rank === 2) rankIcon = '<span class="rank-2">🥈</span>';
+                    if (rank === 3) rankIcon = '<span class="rank-3">🥉</span>';
+
+                    let tendenciaHtml = '';
+                    if (user.tendencia !== undefined && user.tendencia !== 0) {
+                        if (user.tendencia > 0) {
+                            tendenciaHtml = `<span style="float: right; color: #2ecc71; font-size: 0.85rem; font-weight: 800;">▲ ${user.tendencia}</span>`;
+                        } else {
+                            tendenciaHtml = `<span style="float: right; color: #e74c3c; font-size: 0.85rem; font-weight: 800;">▼ ${Math.abs(user.tendencia)}</span>`;
+                        }
+                    } else if (user.tendencia === 0) {
+                        tendenciaHtml = `<span style="float: right; color: var(--text-muted); font-size: 0.85rem; font-weight: 800;">-</span>`;
+                    }
+
+                    body.innerHTML += `
+                        <tr>
+                            <td class="rank-col">${rankIcon}</td>
+                            <td class="name-col" style="text-align: left;">${user.nombre}${tendenciaHtml}</td>
+                            <td class="points-col">${user.puntos || 0} pts</td>
+                        </tr>
+                    `;
+                    rank++;
+                });
+            } catch (e) { console.error(e); }
+        }
+
+        // Individual Save functionality
+        window.saveIndividualPrediction = async (matchId, isUpdate) => {
+            const goalsLocalText = document.getElementById(`score-local-${matchId}`).innerText;
+            const goalsAwayText = document.getElementById(`score-visitante-${matchId}`).innerText;
+
+            if (goalsLocalText === "-" || goalsAwayText === "-") {
+                alert("Por favor establece un marcador antes de guardar.");
+                return;
+            }
+
+            const matchSnap = await getDoc(doc(db, "octavos", matchId));
+            if (matchSnap.exists() && isPredictionLocked(matchSnap.data())) {
+                alert("Las predicciones para este partido ya están cerradas.");
+                loadMatchesForUser(currentUser);
+                return;
+            }
+
+            const confirmMsg = "¿Estás seguro? Una vez guardada, no podrás modificar esta predicción.";
+            if (!confirm(confirmMsg)) return;
+
+            const btn = document.getElementById(`btn-save-${matchId}`);
+            btn.disabled = true;
+            btn.innerText = "Guardando...";
+
+            try {
+                const docId = `${currentUser}_${matchId}`;
+                await setDoc(doc(db, "predicciones", docId), {
+                    usuario: currentUser,
+                    idPartido: matchId,
+                    goles_local: parseInt(goalsLocalText),
+                    goles_visitante: parseInt(goalsAwayText),
+                    fecha_apuesta: serverTimestamp()
+                });
+
+                loadMatchesForUser(currentUser);
+            } catch (e) {
+                console.error(e);
+                alert("Error al guardar: " + e.message);
+                btn.disabled = false;
+                btn.innerText = isUpdate ? "Actualizar Predicción" : "Guardar Predicción";
+            }
+        };
+
+        window.goToAdmin = function () {
+            const pass = prompt("Ingresa la contraseña de administrador:");
+            if (pass === "ad1234") {
+                window.location.href = "admin.html";
+            } else {
+                alert("Contraseña incorrecta. Acceso denegado.");
+            }
+        };
+
+        window.toggleQuickLeaderboard = async function() {
+            const container = document.getElementById('quick-leaderboard');
+            const btn = document.getElementById('quick-view-btn');
+            const body = document.getElementById('quick-leaderboard-body');
+            
+            if (container.classList.contains('hidden')) {
+                document.getElementById('quick-predictions').classList.add('hidden');
+                resetQuickPredictionsBtn();
+                container.classList.remove('hidden');
+                btn.innerText = "Cerrar Tabla ✖";
+                btn.style.borderColor = "var(--text-muted)";
+                btn.style.color = "var(--text-muted)";
+                
+                body.innerHTML = '<tr><td colspan="3" style="text-align:center; padding: 1rem;">Cargando...</td></tr>';
+                
+                try {
+                    const q = query(collection(db, "usuarios"), orderBy("puntos", "desc"));
+                    const snap = await getDocs(q);
+                    body.innerHTML = '';
+                    
+                    let rank = 1;
+                    snap.forEach(docSnap => {
+                        const user = docSnap.data();
+                        let rankIcon = rank;
+                        if (rank === 1) rankIcon = '🥇';
+                        if (rank === 2) rankIcon = '🥈';
+                        if (rank === 3) rankIcon = '🥉';
+                        
+                        let tendenciaHtml = '';
+                        if (user.tendencia !== undefined && user.tendencia !== 0) {
+                            if (user.tendencia > 0) {
+                                tendenciaHtml = `<span style="float: right; color: #2ecc71; font-size: 0.8rem; font-weight: 800;">▲ ${user.tendencia}</span>`;
+                            } else {
+                                tendenciaHtml = `<span style="float: right; color: #e74c3c; font-size: 0.8rem; font-weight: 800;">▼ ${Math.abs(user.tendencia)}</span>`;
+                            }
+                        } else if (user.tendencia === 0) {
+                            tendenciaHtml = `<span style="float: right; color: var(--text-muted); font-size: 0.8rem; font-weight: 800;">-</span>`;
+                        }
+                        
+                        body.innerHTML += `
+                            <tr>
+                                <td class="rank-col" style="padding: 0.8rem;">${rankIcon}</td>
+                                <td class="name-col" style="padding: 0.8rem; text-align: left;">${user.nombre}${tendenciaHtml}</td>
+                                <td class="points-col" style="padding: 0.8rem;">${user.puntos || 0}</td>
+                            </tr>
+                        `;
+                        rank++;
+                    });
+                } catch (e) { 
+                    console.error(e);
+                    body.innerHTML = '<tr><td colspan="3" style="text-align:center; color: #ef4444;">Error al cargar</td></tr>';
+                }
+            } else {
+                container.classList.add('hidden');
+                btn.innerText = "Ver Tabla de Clasificación 📊";
+                btn.style.borderColor = "var(--secondary)";
+                btn.style.color = "var(--secondary)";
+            }
+        };
+
+        function resetQuickPredictionsBtn() {
+            const btn = document.getElementById('quick-predictions-btn');
+            btn.innerText = "Ver Predicciones por Partido 📋";
+            btn.style.borderColor = "#9b59b6";
+            btn.style.color = "#9b59b6";
+        }
+
+        async function loadPublicMatchesSelect() {
+            try {
+                const snap = await getDocs(query(collection(db, "octavos"), orderBy("fecha", "asc")));
+                publicMatchesCache = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+                const select = document.getElementById('quick-predictions-select');
+                const current = select.value;
+                select.innerHTML = '<option value="">— Selecciona un partido —</option>';
+                publicMatchesCache.forEach(m => {
+                    const date = m.fecha.toDate().toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+                    const isPlayed = m.procesado === true || m.fecha.toDate() <= new Date();
+                    const styleStr = isPlayed ? 'style="color: #2ecc71; font-weight: 600;"' : '';
+                    const iconStr = isPlayed ? ' ✅' : '';
+                    select.innerHTML += `<option value="${m.idEvent}" ${styleStr}>${translateTeam(m.local)} vs ${translateTeam(m.visitante)} (${date})${iconStr}</option>`;
+                });
+                if (current && publicMatchesCache.some(m => m.idEvent === current)) {
+                    select.value = current;
+                }
+            } catch (e) { console.error(e); }
+        }
+
+        window.toggleQuickPredictions = async function() {
+            const container = document.getElementById('quick-predictions');
+            const btn = document.getElementById('quick-predictions-btn');
+
+            if (container.classList.contains('hidden')) {
+                document.getElementById('quick-leaderboard').classList.add('hidden');
+                const lbBtn = document.getElementById('quick-view-btn');
+                lbBtn.innerText = "Ver Tabla de Clasificación 📊";
+                lbBtn.style.borderColor = "var(--secondary)";
+                lbBtn.style.color = "var(--secondary)";
+
+                container.classList.remove('hidden');
+                btn.innerText = "Cerrar Predicciones ✖";
+                btn.style.borderColor = "var(--text-muted)";
+                btn.style.color = "var(--text-muted)";
+
+                await loadPublicMatchesSelect();
+                loadPublicMatchPredictions();
+            } else {
+                container.classList.add('hidden');
+                resetQuickPredictionsBtn();
+            }
+        };
+
+        window.loadPublicMatchPredictions = async function() {
+            const matchId = document.getElementById('quick-predictions-select').value;
+            const listEl = document.getElementById('quick-predictions-list');
+            const summaryEl = document.getElementById('quick-predictions-summary');
+            const officialEl = document.getElementById('quick-predictions-official');
+
+            if (!matchId) {
+                listEl.innerHTML = '';
+                summaryEl.innerHTML = '';
+                officialEl.classList.add('hidden');
+                officialEl.innerHTML = '';
+                return;
+            }
+
+            listEl.innerHTML = '<li style="justify-content:center; color: var(--text-muted);">Cargando...</li>';
+            summaryEl.innerHTML = '';
+            officialEl.classList.add('hidden');
+
+            try {
+                const [predSnap, userSnap, matchSnap] = await Promise.all([
+                    getDocs(query(collection(db, "predicciones"), where("idPartido", "==", matchId))),
+                    getDocs(query(collection(db, "usuarios"), orderBy("nombre", "asc"))),
+                    getDoc(doc(db, "octavos", matchId))
+                ]);
+
+                const predsByUser = {};
+                predSnap.forEach(d => {
+                    const p = d.data();
+                    predsByUser[p.usuario] = p;
+                });
+
+                const match = matchSnap.exists()
+                    ? { idEvent: matchId, ...matchSnap.data() }
+                    : publicMatchesCache.find(m => m.idEvent === matchId);
+                const matchLabel = match
+                    ? `${translateTeam(match.local)} vs ${translateTeam(match.visitante)}`
+                    : matchId;
+
+                if (match && match.procesado === true) {
+                    officialEl.classList.remove('hidden', 'pending');
+                    officialEl.classList.add('played');
+                    officialEl.innerHTML = `Resultado oficial: <strong>${match.goles_local} - ${match.goles_visitante}</strong> ⚽`;
+                } else {
+                    officialEl.classList.remove('hidden', 'played');
+                    officialEl.classList.add('pending');
+                    officialEl.innerHTML = 'Resultado oficial: pendiente';
+                }
+
+                if (userSnap.empty) {
+                    listEl.innerHTML = '<li style="justify-content:center; color: var(--text-muted);">No hay participantes.</li>';
+                    summaryEl.innerHTML = matchLabel;
+                    return;
+                }
+
+                let html = '';
+                let withPred = 0;
+                const showPts = match && match.procesado === true;
+                const isLocked = match ? isPredictionLocked(match) : false;
+
+                userSnap.forEach(d => {
+                    const user = d.data();
+                    const p = predsByUser[user.nombre];
+                    if (p) {
+                        withPred++;
+                        const pts = showPts && p.puntosGanados !== undefined
+                            ? ` <span class="pred-pts">(${p.puntosGanados} pts)</span>`
+                            : '';
+                        
+                        if (!isLocked) {
+                            html += `<li><span class="pred-user">${user.nombre}</span><span class="pred-score" style="color: var(--text-muted); font-style: italic;">Pronóstico oculto 🔒</span></li>`;
+                        } else {
+                            html += `<li><span class="pred-user">${user.nombre}</span><span class="pred-score">${p.goles_local} - ${p.goles_visitante}${pts}</span></li>`;
+                        }
+                    } else {
+                        html += `<li class="no-prediction"><span class="pred-user">${user.nombre}</span><span class="pred-score">Sin predicción</span></li>`;
+                    }
+                });
+
+                listEl.innerHTML = html;
+                summaryEl.innerHTML = `${matchLabel} — ${withPred} de ${userSnap.size} han pronosticado`;
+            } catch (e) {
+                console.error(e);
+                listEl.innerHTML = `<li style="justify-content:center; color: #ef4444;">Error al cargar</li>`;
+                officialEl.classList.add('hidden');
+            }
+        };
+
+        window.selectProfile = async function (name) {
+            currentUser = name;
+            document.getElementById('user-greeting').innerText = `Hola, ${name}`;
+            document.getElementById('profile-selection').classList.add('fade-out');
+            document.getElementById('main-content').classList.remove('hidden');
+
+            // Check if user has points to show
+            const uQuery = query(collection(db, "usuarios"), where("nombre", "==", name));
+            const uSnap = await getDocs(uQuery);
+            if (!uSnap.empty) {
+                document.getElementById('user-points').innerText = `${uSnap.docs[0].data().puntos || 0} Puntos`;
+            }
+
+            // Load matches
+            await loadMatchesForUser(name);
+
+            // Mostrar la vista de predicciones por defecto para ubicar el partido del día
+            toggleView('prediction');
+
+            setTimeout(() => {
+                document.getElementById('profile-selection').style.display = 'none';
+                if (window.nextMatchToScroll) {
+                    const card = document.getElementById('card-' + window.nextMatchToScroll);
+                    if (card) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            }, 500);
+        };
+
+        loadProfiles();
+    </script>
+</body>
+
+</html>

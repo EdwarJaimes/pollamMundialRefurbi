@@ -1,0 +1,2809 @@
+{
+  "documents": [
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391728",
+      "fields": {
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/dzhwsf1775058317.jpg"
+        },
+        "visitante": {
+          "stringValue": "South Africa"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/yok37q1775110706.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-11T19:00:00Z"
+        },
+        "local": {
+          "stringValue": "Mexico"
+        },
+        "idEvent": {
+          "stringValue": "2391728"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        }
+      },
+      "createTime": "2026-05-02T14:50:18.212727Z",
+      "updateTime": "2026-06-12T17:51:22.948482Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391729",
+      "fields": {
+        "goles_local": {
+          "integerValue": "4"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/zzcn9j1775058318.jpg"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-13T01:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/qd0c3x1775110707.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Paraguay"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "idEvent": {
+          "stringValue": "2391729"
+        },
+        "local": {
+          "stringValue": "USA"
+        }
+      },
+      "createTime": "2026-05-02T14:50:18.947051Z",
+      "updateTime": "2026-06-13T03:02:19.524579Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391730",
+      "fields": {
+        "local": {
+          "stringValue": "Brazil"
+        },
+        "idEvent": {
+          "stringValue": "2391730"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/yqgi9o1775110708.jpg"
+        },
+        "visitante": {
+          "stringValue": "Morocco"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-13T22:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/mau34u1775058318.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:19.473406Z",
+      "updateTime": "2026-06-14T00:06:52.241289Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391731",
+      "fields": {
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/24pszh1775058320.jpg"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/82hfcg1775110709.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Scotland"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-14T01:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "local": {
+          "stringValue": "Haiti"
+        },
+        "idEvent": {
+          "stringValue": "2391731"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        }
+      },
+      "createTime": "2026-05-02T14:50:19.663509Z",
+      "updateTime": "2026-06-14T03:04:05.788710Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391732",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391732"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "local": {
+          "stringValue": "Qatar"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-13T19:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/bergbn1775110710.jpg"
+        },
+        "visitante": {
+          "stringValue": "Switzerland"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/ijfi9n1775058321.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:19.276122Z",
+      "updateTime": "2026-06-13T21:03:28.585993Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391733",
+      "fields": {
+        "fecha": {
+          "timestampValue": "2026-06-14T17:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/jar87s1775110711.jpg"
+        },
+        "visitante": {
+          "stringValue": "Curaçao"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "goles_local": {
+          "integerValue": "6"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/c58bxh1775058322.jpg"
+        },
+        "idEvent": {
+          "stringValue": "2391733"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "local": {
+          "stringValue": "Germany"
+        }
+      },
+      "createTime": "2026-05-02T14:50:20.115678Z",
+      "updateTime": "2026-06-14T18:44:44.871133Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391734",
+      "fields": {
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/61g7b91775058323.jpg"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "visitante": {
+          "stringValue": "Ecuador"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/iaod111775110711.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-14T23:00:00Z"
+        },
+        "local": {
+          "stringValue": "Ivory Coast"
+        },
+        "idEvent": {
+          "stringValue": "2391734"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        }
+      },
+      "createTime": "2026-05-02T14:50:20.496415Z",
+      "updateTime": "2026-06-15T00:57:50.412644Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391735",
+      "fields": {
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/n034to1775110712.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Japan"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-14T20:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/8rj5lv1775058324.jpg"
+        },
+        "local": {
+          "stringValue": "Netherlands"
+        },
+        "idEvent": {
+          "stringValue": "2391735"
+        },
+        "goles_visitante": {
+          "integerValue": "2"
+        }
+      },
+      "createTime": "2026-05-02T14:50:20.314999Z",
+      "updateTime": "2026-06-14T21:54:15.931938Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391736",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391736"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "local": {
+          "stringValue": "Belgium"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-15T19:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/69rnif1775110713.jpg"
+        },
+        "visitante": {
+          "stringValue": "Egypt"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/uejz5h1775058325.jpg"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        }
+      },
+      "createTime": "2026-05-02T14:50:21.045205Z",
+      "updateTime": "2026-06-15T21:24:23.569057Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391737",
+      "fields": {
+        "visitante": {
+          "stringValue": "New Zealand"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/mqtsce1775110714.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-16T01:00:00Z"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/qhf26y1775058326.jpg"
+        },
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "local": {
+          "stringValue": "Iran"
+        },
+        "idEvent": {
+          "stringValue": "2391737"
+        },
+        "goles_visitante": {
+          "integerValue": "2"
+        }
+      },
+      "createTime": "2026-05-02T14:50:21.417506Z",
+      "updateTime": "2026-06-16T03:05:00.119081Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391738",
+      "fields": {
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-15T22:00:00Z"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Uruguay"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/vi98se1775110715.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/zhbzh41775058327.jpg"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "idEvent": {
+          "stringValue": "2391738"
+        },
+        "local": {
+          "stringValue": "Saudi Arabia"
+        }
+      },
+      "createTime": "2026-05-02T14:50:21.228670Z",
+      "updateTime": "2026-06-15T23:52:47.722622Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391739",
+      "fields": {
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "idEvent": {
+          "stringValue": "2391739"
+        },
+        "local": {
+          "stringValue": "Spain"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/xi9bqn1775058328.jpg"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-15T16:00:00Z"
+        },
+        "visitante": {
+          "stringValue": "Cape Verde"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/v2j76h1775110716.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        }
+      },
+      "createTime": "2026-05-02T14:50:20.866513Z",
+      "updateTime": "2026-06-15T17:41:43.826277Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391740",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391740"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Argentina"
+        },
+        "goles_local": {
+          "integerValue": "3"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/w4gd291775058329.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-17T01:00:00Z"
+        },
+        "visitante": {
+          "stringValue": "Algeria"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/qvp77y1775110717.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:21.919139Z",
+      "updateTime": "2026-06-17T02:59:47.828455Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391741",
+      "fields": {
+        "local": {
+          "stringValue": "Austria"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "idEvent": {
+          "stringValue": "2391741"
+        },
+        "goles_local": {
+          "integerValue": "3"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/sfkizc1775058330.jpg"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/3j36ol1775110718.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Jordan"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-17T04:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        }
+      },
+      "createTime": "2026-05-02T14:50:22.180133Z",
+      "updateTime": "2026-06-17T11:55:58.635804Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391742",
+      "fields": {
+        "local": {
+          "stringValue": "France"
+        },
+        "idEvent": {
+          "stringValue": "2391742"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Senegal"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/149huv1775110719.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-16T19:00:00Z"
+        },
+        "goles_local": {
+          "integerValue": "3"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/73gvui1775058331.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:21.570087Z",
+      "updateTime": "2026-06-16T21:04:30.807341Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391743",
+      "fields": {
+        "local": {
+          "stringValue": "England"
+        },
+        "idEvent": {
+          "stringValue": "2391743"
+        },
+        "goles_visitante": {
+          "integerValue": "2"
+        },
+        "visitante": {
+          "stringValue": "Croatia"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/gcmcv51775110720.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-17T20:00:00Z"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/cfi1ep1775058332.jpg"
+        },
+        "goles_local": {
+          "integerValue": "4"
+        }
+      },
+      "createTime": "2026-05-02T14:50:22.636642Z",
+      "updateTime": "2026-06-17T22:46:14.094113Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391744",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391744"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Ghana"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-17T23:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/t2xind1775110721.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Panama"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/qq0ayn1775058333.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:22.834185Z",
+      "updateTime": "2026-06-18T01:02:38.354654Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391745",
+      "fields": {
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/3djh5j1775110722.jpg"
+        },
+        "visitante": {
+          "stringValue": "Colombia"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-18T02:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/s0getc1775058334.jpg"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "local": {
+          "stringValue": "Uzbekistan"
+        },
+        "idEvent": {
+          "stringValue": "2391745"
+        },
+        "goles_visitante": {
+          "integerValue": "3"
+        }
+      },
+      "createTime": "2026-05-02T14:50:23.105247Z",
+      "updateTime": "2026-06-18T04:02:04.626237Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391746",
+      "fields": {
+        "goles_local": {
+          "integerValue": "6"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/vcjp4j1775058335.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-18T22:00:00Z"
+        },
+        "visitante": {
+          "stringValue": "Qatar"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/irh0951775110723.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "idEvent": {
+          "stringValue": "2391746"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Canada"
+        }
+      },
+      "createTime": "2026-05-02T14:50:23.630234Z",
+      "updateTime": "2026-06-19T00:03:55.657787Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391747",
+      "fields": {
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/r0l9hp1775058336.jpg"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-19T01:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/wystf31775110724.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "visitante": {
+          "stringValue": "South Korea"
+        },
+        "idEvent": {
+          "stringValue": "2391747"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Mexico"
+        }
+      },
+      "createTime": "2026-05-02T14:50:23.777006Z",
+      "updateTime": "2026-06-19T02:57:38.201236Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391748",
+      "fields": {
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-20T00:30:00Z"
+        },
+        "visitante": {
+          "stringValue": "Haiti"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/bv13cj1775110725.jpg"
+        },
+        "goles_local": {
+          "integerValue": "3"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/cbpzq61775058337.jpg"
+        },
+        "idEvent": {
+          "stringValue": "2391748"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Brazil"
+        }
+      },
+      "createTime": "2026-05-02T14:50:24.321526Z",
+      "updateTime": "2026-06-20T02:32:58.901793Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391749",
+      "fields": {
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/h9f6ho1775058338.jpg"
+        },
+        "visitante": {
+          "stringValue": "Morocco"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/6uxdre1775110726.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-19T22:00:00Z"
+        },
+        "local": {
+          "stringValue": "Scotland"
+        },
+        "idEvent": {
+          "stringValue": "2391749"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        }
+      },
+      "createTime": "2026-05-02T14:50:24.164806Z",
+      "updateTime": "2026-06-20T00:09:22.414177Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391750",
+      "fields": {
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/jsz07z1775058339.jpg"
+        },
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/8p0h1r1775110726.jpg"
+        },
+        "visitante": {
+          "stringValue": "Australia"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-19T19:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "local": {
+          "stringValue": "USA"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "idEvent": {
+          "stringValue": "2391750"
+        }
+      },
+      "createTime": "2026-05-02T14:50:23.959165Z",
+      "updateTime": "2026-06-19T21:43:40.905764Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391751",
+      "fields": {
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/2ccwlo1775058340.jpg"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-21T02:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/kpn9qv1775110727.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": false
+        },
+        "visitante": {
+          "stringValue": "Curaçao"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "idEvent": {
+          "stringValue": "2391751"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Ecuador"
+        }
+      },
+      "createTime": "2026-05-02T14:50:25.077292Z",
+      "updateTime": "2026-06-21T01:57:23.034275Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391752",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391752"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "local": {
+          "stringValue": "Germany"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-20T20:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/3xncd61775110728.jpg"
+        },
+        "visitante": {
+          "stringValue": "Ivory Coast"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/jzc7kq1775058341.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:24.886703Z",
+      "updateTime": "2026-06-20T22:14:11.725445Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391753",
+      "fields": {
+        "fecha": {
+          "timestampValue": "2026-06-21T04:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/y8nfqy1775110729.jpg"
+        },
+        "visitante": {
+          "stringValue": "Japan"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/y5fihn1775058342.jpg"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "idEvent": {
+          "stringValue": "2391753"
+        },
+        "goles_visitante": {
+          "integerValue": "4"
+        },
+        "local": {
+          "stringValue": "Tunisia"
+        }
+      },
+      "createTime": "2026-05-02T14:50:25.259359Z",
+      "updateTime": "2026-06-21T11:46:04.952342Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391754",
+      "fields": {
+        "local": {
+          "stringValue": "Belgium"
+        },
+        "idEvent": {
+          "stringValue": "2391754"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/6if4dh1775110730.jpg"
+        },
+        "visitante": {
+          "stringValue": "Iran"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-21T19:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/c4jyvr1775058343.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:25.589037Z",
+      "updateTime": "2026-06-21T21:22:38.907266Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391755",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391755"
+        },
+        "goles_visitante": {
+          "integerValue": "3"
+        },
+        "local": {
+          "stringValue": "New Zealand"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/zxmks31775058344.jpg"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-22T01:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/d6fdnq1775110731.jpg"
+        },
+        "visitante": {
+          "stringValue": "Egypt"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        }
+      },
+      "createTime": "2026-05-02T14:50:25.942376Z",
+      "updateTime": "2026-06-22T03:04:19.576358Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391756",
+      "fields": {
+        "goles_local": {
+          "integerValue": "4"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/kv7yiz1775058345.jpg"
+        },
+        "visitante": {
+          "stringValue": "Saudi Arabia"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/atuecw1775110732.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-21T16:00:00Z"
+        },
+        "local": {
+          "stringValue": "Spain"
+        },
+        "idEvent": {
+          "stringValue": "2391756"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        }
+      },
+      "createTime": "2026-05-02T14:50:25.433998Z",
+      "updateTime": "2026-06-21T18:03:44.368465Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391757",
+      "fields": {
+        "local": {
+          "stringValue": "Uruguay"
+        },
+        "goles_visitante": {
+          "integerValue": "2"
+        },
+        "idEvent": {
+          "stringValue": "2391757"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/ga832m1775058346.jpg"
+        },
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "visitante": {
+          "stringValue": "Cape Verde"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/y7bqso1775110733.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-21T22:00:00Z"
+        }
+      },
+      "createTime": "2026-05-02T14:50:25.764402Z",
+      "updateTime": "2026-06-22T00:06:27.303942Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391758",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391758"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Argentina"
+        },
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/ho62ce1775058347.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-22T17:00:00Z"
+        },
+        "visitante": {
+          "stringValue": "Austria"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/hewfts1775110734.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:26.093757Z",
+      "updateTime": "2026-06-22T19:02:28.316763Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391759",
+      "fields": {
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/2kztsi1775110735.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "visitante": {
+          "stringValue": "Algeria"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-23T03:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/qoftsk1775058348.jpg"
+        },
+        "local": {
+          "stringValue": "Jordan"
+        },
+        "goles_visitante": {
+          "integerValue": "2"
+        },
+        "idEvent": {
+          "stringValue": "2391759"
+        }
+      },
+      "createTime": "2026-05-02T14:50:26.557300Z",
+      "updateTime": "2026-06-23T14:24:03.476917Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391760",
+      "fields": {
+        "goles_local": {
+          "integerValue": "3"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/3azkme1775058349.jpg"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-23T00:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/ljqm9e1775110736.jpg"
+        },
+        "visitante": {
+          "stringValue": "Senegal"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "idEvent": {
+          "stringValue": "2391760"
+        },
+        "goles_visitante": {
+          "integerValue": "2"
+        },
+        "local": {
+          "stringValue": "Norway"
+        }
+      },
+      "createTime": "2026-05-02T14:50:26.402609Z",
+      "updateTime": "2026-06-23T02:00:39.137615Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391761",
+      "fields": {
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/e5dedu1775058350.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-23T20:00:00Z"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "visitante": {
+          "stringValue": "Ghana"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/1pz3z81775110737.jpg"
+        },
+        "idEvent": {
+          "stringValue": "2391761"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "England"
+        }
+      },
+      "createTime": "2026-05-02T14:50:26.969707Z",
+      "updateTime": "2026-06-23T23:03:19.817210Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391762",
+      "fields": {
+        "visitante": {
+          "stringValue": "Croatia"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/3z5fma1775110738.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-23T23:00:00Z"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/72bcb41775058351.jpg"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Panama"
+        },
+        "idEvent": {
+          "stringValue": "2391762"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        }
+      },
+      "createTime": "2026-05-02T14:50:27.148593Z",
+      "updateTime": "2026-06-24T00:55:07.335592Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391763",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391763"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Portugal"
+        },
+        "goles_local": {
+          "integerValue": "5"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/kdr7qh1775058352.jpg"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-23T17:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/2kb5dz1775110739.jpg"
+        },
+        "visitante": {
+          "stringValue": "Uzbekistan"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        }
+      },
+      "createTime": "2026-05-02T14:50:26.778556Z",
+      "updateTime": "2026-06-23T19:01:50.210061Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391764",
+      "fields": {
+        "goles_local": {
+          "integerValue": "4"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/99fxp31775058353.jpg"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-24T22:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/part5b1775110740.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "Haiti"
+        },
+        "idEvent": {
+          "stringValue": "2391764"
+        },
+        "goles_visitante": {
+          "integerValue": "2"
+        },
+        "local": {
+          "stringValue": "Morocco"
+        }
+      },
+      "createTime": "2026-05-02T14:50:28.046315Z",
+      "updateTime": "2026-06-25T00:03:17.166068Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391765",
+      "fields": {
+        "local": {
+          "stringValue": "Scotland"
+        },
+        "idEvent": {
+          "stringValue": "2391765"
+        },
+        "goles_visitante": {
+          "integerValue": "3"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/ipcah51775058354.jpg"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "visitante": {
+          "stringValue": "Brazil"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/spnvg11775110741.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-24T22:00:00Z"
+        }
+      },
+      "createTime": "2026-05-02T14:50:28.221163Z",
+      "updateTime": "2026-06-25T00:03:10.387602Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391766",
+      "fields": {
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "idEvent": {
+          "stringValue": "2391766"
+        },
+        "local": {
+          "stringValue": "South Africa"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/apzr651775058355.jpg"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-25T01:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/a0c3oe1775110742.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "visitante": {
+          "stringValue": "South Korea"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        }
+      },
+      "createTime": "2026-05-02T14:50:28.374265Z",
+      "updateTime": "2026-06-25T03:03:45.885022Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391767",
+      "fields": {
+        "local": {
+          "stringValue": "Switzerland"
+        },
+        "idEvent": {
+          "stringValue": "2391767"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/1dp6u11775110743.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "Canada"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-24T19:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/t2wxux1775058356.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:27.497920Z",
+      "updateTime": "2026-06-24T20:57:18.713514Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391768",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391768"
+        },
+        "goles_visitante": {
+          "integerValue": "2"
+        },
+        "local": {
+          "stringValue": "Curaçao"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-25T20:00:00Z"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "Ivory Coast"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/cir4711775110744.jpg"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/2i6gsa1775058357.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:28.732596Z",
+      "updateTime": "2026-06-25T21:59:31.303365Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391769",
+      "fields": {
+        "local": {
+          "stringValue": "Ecuador"
+        },
+        "idEvent": {
+          "stringValue": "2391769"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/8fj6q21775110745.jpg"
+        },
+        "visitante": {
+          "stringValue": "Germany"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-25T20:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/bgspfq1775058358.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:28.887963Z",
+      "updateTime": "2026-06-25T21:59:32.866929Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391770",
+      "fields": {
+        "local": {
+          "stringValue": "Paraguay"
+        },
+        "idEvent": {
+          "stringValue": "2391770"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "visitante": {
+          "stringValue": "Australia"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/n43n5k1775110745.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-26T02:00:00Z"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/bfi9m01775058359.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:29.397794Z",
+      "updateTime": "2026-06-26T09:41:48.904446Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391771",
+      "fields": {
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/p5hb8y1775058360.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-25T23:00:00Z"
+        },
+        "visitante": {
+          "stringValue": "Netherlands"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/4cscyz1775110746.jpg"
+        },
+        "idEvent": {
+          "stringValue": "2391771"
+        },
+        "goles_visitante": {
+          "integerValue": "3"
+        },
+        "local": {
+          "stringValue": "Tunisia"
+        }
+      },
+      "createTime": "2026-05-02T14:50:29.045811Z",
+      "updateTime": "2026-06-26T00:55:23.468319Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391772",
+      "fields": {
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/fchnmj1775058361.jpg"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-27T00:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/u2vch71775110747.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "Saudi Arabia"
+        },
+        "idEvent": {
+          "stringValue": "2391772"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Cape Verde"
+        }
+      },
+      "createTime": "2026-05-02T14:50:30.056137Z",
+      "updateTime": "2026-06-27T02:02:41.970378Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391773",
+      "fields": {
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/yane951775058362.jpg"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/1mjifv1775110748.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "Iran"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-27T03:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "local": {
+          "stringValue": "Egypt"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "idEvent": {
+          "stringValue": "2391773"
+        }
+      },
+      "createTime": "2026-05-02T14:50:30.462899Z",
+      "updateTime": "2026-06-27T05:03:30.817358Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391774",
+      "fields": {
+        "local": {
+          "stringValue": "New Zealand"
+        },
+        "idEvent": {
+          "stringValue": "2391774"
+        },
+        "goles_visitante": {
+          "integerValue": "5"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/162w8r1775058363.jpg"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/6q0gjw1775110749.jpg"
+        },
+        "visitante": {
+          "stringValue": "Belgium"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-27T03:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        }
+      },
+      "createTime": "2026-05-02T14:50:30.629957Z",
+      "updateTime": "2026-06-27T04:59:25.913839Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391775",
+      "fields": {
+        "local": {
+          "stringValue": "Norway"
+        },
+        "idEvent": {
+          "stringValue": "2391775"
+        },
+        "goles_visitante": {
+          "integerValue": "4"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "France"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/bf1xbd1775110750.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-26T19:00:00Z"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/g2uph61775058364.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:29.730938Z",
+      "updateTime": "2026-06-26T21:04:44.963509Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391776",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2391776"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "local": {
+          "stringValue": "Uruguay"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-27T00:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/o7h4rb1775110751.jpg"
+        },
+        "visitante": {
+          "stringValue": "Spain"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/b2zc0v1775058365.jpg"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        }
+      },
+      "createTime": "2026-05-02T14:50:30.210330Z",
+      "updateTime": "2026-06-27T02:02:41.002458Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391777",
+      "fields": {
+        "procesado": {
+          "booleanValue": false
+        },
+        "fecha": {
+          "timestampValue": "2026-06-28T02:00:00Z"
+        },
+        "visitante": {
+          "stringValue": "Austria"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/y7upr71775110752.jpg"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/5fca081775058366.jpg"
+        },
+        "goles_local": {
+          "nullValue": null
+        },
+        "idEvent": {
+          "stringValue": "2391777"
+        },
+        "goles_visitante": {
+          "nullValue": null
+        },
+        "local": {
+          "stringValue": "Algeria"
+        }
+      },
+      "createTime": "2026-05-02T14:50:31.489867Z",
+      "updateTime": "2026-06-12T17:51:22.948482Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391778",
+      "fields": {
+        "local": {
+          "stringValue": "Colombia"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "idEvent": {
+          "stringValue": "2391778"
+        },
+        "visitante": {
+          "stringValue": "Portugal"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/ptrqsi1775110753.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-27T23:30:00Z"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/u6lsyr1775058367.jpg"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        }
+      },
+      "createTime": "2026-05-02T14:50:31.134961Z",
+      "updateTime": "2026-06-28T01:29:02.846481Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391779",
+      "fields": {
+        "local": {
+          "stringValue": "Croatia"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "idEvent": {
+          "stringValue": "2391779"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/lnb9q61775110754.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "Ghana"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-27T21:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/fwxopf1775058368.jpg"
+        },
+        "goles_local": {
+          "integerValue": "2"
+        }
+      },
+      "createTime": "2026-05-02T14:50:30.803873Z",
+      "updateTime": "2026-06-27T22:59:56.065596Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391780",
+      "fields": {
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/aejlsx1775058369.jpg"
+        },
+        "goles_local": {
+          "nullValue": null
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/cvnz791775110755.jpg"
+        },
+        "visitante": {
+          "stringValue": "Argentina"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-28T02:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": false
+        },
+        "local": {
+          "stringValue": "Jordan"
+        },
+        "idEvent": {
+          "stringValue": "2391780"
+        },
+        "goles_visitante": {
+          "nullValue": null
+        }
+      },
+      "createTime": "2026-05-02T14:50:31.643066Z",
+      "updateTime": "2026-06-12T17:51:22.948482Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2391781",
+      "fields": {
+        "goles_visitante": {
+          "integerValue": "2"
+        },
+        "idEvent": {
+          "stringValue": "2391781"
+        },
+        "local": {
+          "stringValue": "Panama"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/enrwox1775058370.jpg"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-27T21:00:00Z"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "England"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/rachh91775110756.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:30.979367Z",
+      "updateTime": "2026-06-27T23:00:22.668585Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461103",
+      "fields": {
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/7ogw2s1775058371.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-12T02:00:00Z"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Czech Republic"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/1lvv8d1775110757.jpg"
+        },
+        "idEvent": {
+          "stringValue": "2461103"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "local": {
+          "stringValue": "South Korea"
+        }
+      },
+      "createTime": "2026-05-02T14:50:18.441864Z",
+      "updateTime": "2026-06-12T17:51:22.948482Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461104",
+      "fields": {
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/5ioorn1775110758.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Bosnia-Herzegovina"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-12T19:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/nsv3mc1775058372.jpg"
+        },
+        "local": {
+          "stringValue": "Canada"
+        },
+        "idEvent": {
+          "stringValue": "2461104"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        }
+      },
+      "createTime": "2026-05-02T14:50:18.641828Z",
+      "updateTime": "2026-06-12T20:59:19.447940Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461105",
+      "fields": {
+        "fecha": {
+          "timestampValue": "2026-06-14T04:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/p37w6p1775110759.jpg"
+        },
+        "visitante": {
+          "stringValue": "Turkey"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "goles_local": {
+          "integerValue": "2"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/kgoj1q1775058373.jpg"
+        },
+        "idEvent": {
+          "stringValue": "2461105"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Australia"
+        }
+      },
+      "createTime": "2026-05-02T14:50:19.932421Z",
+      "updateTime": "2026-06-14T11:50:05.531309Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461106",
+      "fields": {
+        "local": {
+          "stringValue": "Sweden"
+        },
+        "idEvent": {
+          "stringValue": "2461106"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "goles_local": {
+          "integerValue": "5"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/hja0ne1775058374.jpg"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/b43cx71775110759.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "visitante": {
+          "stringValue": "Tunisia"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-15T02:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        }
+      },
+      "createTime": "2026-05-02T14:50:20.688307Z",
+      "updateTime": "2026-06-15T03:57:39.739081Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461107",
+      "fields": {
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/xbh5yw1775058375.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "visitante": {
+          "stringValue": "Norway"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/dtefd71775110760.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-16T22:00:00Z"
+        },
+        "local": {
+          "stringValue": "Iraq"
+        },
+        "goles_visitante": {
+          "integerValue": "4"
+        },
+        "idEvent": {
+          "stringValue": "2461107"
+        }
+      },
+      "createTime": "2026-05-02T14:50:21.720749Z",
+      "updateTime": "2026-06-17T00:02:32.968605Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461108",
+      "fields": {
+        "visitante": {
+          "stringValue": "DR Congo"
+        },
+        "ronda": {
+          "stringValue": "Round 1"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/bshwqk1775110761.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-17T17:00:00Z"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/cjjkg21775058376.jpg"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "local": {
+          "stringValue": "Portugal"
+        },
+        "idEvent": {
+          "stringValue": "2461108"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        }
+      },
+      "createTime": "2026-05-02T14:50:22.454593Z",
+      "updateTime": "2026-06-17T19:02:36.477282Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461109",
+      "fields": {
+        "local": {
+          "stringValue": "Czech Republic"
+        },
+        "idEvent": {
+          "stringValue": "2461109"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/x3ynsy1775058377.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "visitante": {
+          "stringValue": "South Africa"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/uwk8p51775110762.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-18T16:00:00Z"
+        }
+      },
+      "createTime": "2026-05-02T14:50:23.291206Z",
+      "updateTime": "2026-06-18T17:59:53.075977Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461110",
+      "fields": {
+        "local": {
+          "stringValue": "Switzerland"
+        },
+        "idEvent": {
+          "stringValue": "2461110"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "goles_local": {
+          "integerValue": "4"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/gqg3xe1775058378.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/l7jpxc1775110763.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "visitante": {
+          "stringValue": "Bosnia-Herzegovina"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-18T19:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        }
+      },
+      "createTime": "2026-05-02T14:50:23.479086Z",
+      "updateTime": "2026-06-18T20:56:25.527490Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461111",
+      "fields": {
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "idEvent": {
+          "stringValue": "2461111"
+        },
+        "local": {
+          "stringValue": "Turkey"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-20T03:00:00Z"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "visitante": {
+          "stringValue": "Paraguay"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/4vre081775110764.jpg"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/wy0mgc1775058379.jpg"
+        },
+        "goles_local": {
+          "integerValue": "0"
+        }
+      },
+      "createTime": "2026-05-02T14:50:24.496978Z",
+      "updateTime": "2026-06-20T07:41:04.311489Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461112",
+      "fields": {
+        "goles_local": {
+          "integerValue": "5"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/x1073h1775058380.jpg"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-20T17:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/1rtu7v1775110765.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "visitante": {
+          "stringValue": "Sweden"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "idEvent": {
+          "stringValue": "2461112"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "local": {
+          "stringValue": "Netherlands"
+        }
+      },
+      "createTime": "2026-05-02T14:50:24.703237Z",
+      "updateTime": "2026-06-20T19:01:31.790110Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461113",
+      "fields": {
+        "local": {
+          "stringValue": "France"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "idEvent": {
+          "stringValue": "2461113"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/2t7p3w1775058381.jpg"
+        },
+        "goles_local": {
+          "integerValue": "3"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/tvqmpv1775110765.jpg"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "visitante": {
+          "stringValue": "Iraq"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-22T21:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        }
+      },
+      "createTime": "2026-05-02T14:50:26.248476Z",
+      "updateTime": "2026-06-23T01:00:26.303095Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461114",
+      "fields": {
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-24T02:00:00Z"
+        },
+        "visitante": {
+          "stringValue": "DR Congo"
+        },
+        "ronda": {
+          "stringValue": "Round 2"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/a9f1uu1775110766.jpg"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/o44l951775058382.jpg"
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "idEvent": {
+          "stringValue": "2461114"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Colombia"
+        }
+      },
+      "createTime": "2026-05-02T14:50:27.326857Z",
+      "updateTime": "2026-06-24T04:09:27.041246Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461115",
+      "fields": {
+        "goles_local": {
+          "integerValue": "3"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/me4ksq1775058383.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/egjxgc1775110767.jpg"
+        },
+        "visitante": {
+          "stringValue": "Qatar"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-24T19:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "local": {
+          "stringValue": "Bosnia-Herzegovina"
+        },
+        "idEvent": {
+          "stringValue": "2461115"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        }
+      },
+      "createTime": "2026-05-02T14:50:27.677225Z",
+      "updateTime": "2026-06-24T20:59:38.853925Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461116",
+      "fields": {
+        "idEvent": {
+          "stringValue": "2461116"
+        },
+        "goles_visitante": {
+          "integerValue": "3"
+        },
+        "local": {
+          "stringValue": "Czech Republic"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-25T01:00:00Z"
+        },
+        "visitante": {
+          "stringValue": "Mexico"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/bniddn1775110768.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "0"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/70pe2h1775058384.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:28.529828Z",
+      "updateTime": "2026-06-25T03:03:59.643692Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461117",
+      "fields": {
+        "local": {
+          "stringValue": "Japan"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        },
+        "idEvent": {
+          "stringValue": "2461117"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/9cdaxe1775110769.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "Sweden"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-25T23:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "goles_local": {
+          "integerValue": "1"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/4no2lo1775058385.jpg"
+        }
+      },
+      "createTime": "2026-05-02T14:50:29.200436Z",
+      "updateTime": "2026-06-26T09:42:02.678929Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461118",
+      "fields": {
+        "goles_local": {
+          "integerValue": "3"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/gtllwn1775058386.jpg"
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/lq1joj1775110770.jpg"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "USA"
+        },
+        "fecha": {
+          "timestampValue": "2026-06-26T02:00:00Z"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "local": {
+          "stringValue": "Turkey"
+        },
+        "goles_visitante": {
+          "integerValue": "2"
+        },
+        "idEvent": {
+          "stringValue": "2461118"
+        }
+      },
+      "createTime": "2026-05-02T14:50:29.555016Z",
+      "updateTime": "2026-06-26T09:42:12.034878Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461119",
+      "fields": {
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-26T19:00:00Z"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "visitante": {
+          "stringValue": "Iraq"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/j1ooo61775110771.jpg"
+        },
+        "goles_local": {
+          "integerValue": "5"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/duwfkg1775058387.jpg"
+        },
+        "idEvent": {
+          "stringValue": "2461119"
+        },
+        "goles_visitante": {
+          "integerValue": "0"
+        },
+        "local": {
+          "stringValue": "Senegal"
+        }
+      },
+      "createTime": "2026-05-02T14:50:29.897922Z",
+      "updateTime": "2026-06-26T21:05:05.080701Z"
+    },
+    {
+      "name": "projects/results-9212d/databases/(default)/documents/partidos/2461120",
+      "fields": {
+        "visitante": {
+          "stringValue": "Uzbekistan"
+        },
+        "ronda": {
+          "stringValue": "Round 3"
+        },
+        "bloqueado": {
+          "booleanValue": true
+        },
+        "poster": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/poster/2ujpfg1775110771.jpg"
+        },
+        "procesado": {
+          "booleanValue": true
+        },
+        "fecha": {
+          "timestampValue": "2026-06-27T23:30:00Z"
+        },
+        "thumb": {
+          "stringValue": "https://r2.thesportsdb.com/images/media/event/thumb/pibln91775058388.jpg"
+        },
+        "goles_local": {
+          "integerValue": "3"
+        },
+        "local": {
+          "stringValue": "DR Congo"
+        },
+        "idEvent": {
+          "stringValue": "2461120"
+        },
+        "goles_visitante": {
+          "integerValue": "1"
+        }
+      },
+      "createTime": "2026-05-02T14:50:31.313918Z",
+      "updateTime": "2026-06-28T01:32:23.397656Z"
+    }
+  ]
+}

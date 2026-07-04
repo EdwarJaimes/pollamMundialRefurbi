@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>DB Init - Polla Refurbi</title>
+    <style>
+        body { font-family: sans-serif; background: #0f172a; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; padding: 2rem; }
+        .card { background: #1e293b; padding: 2rem; border-radius: 16px; width: 100%; max-width: 600px; text-align: center; margin-bottom: 2rem; }
+        button { padding: 1rem 2rem; font-size: 1.1rem; cursor: pointer; border: none; color: white; border-radius: 8px; margin: 10px; transition: opacity 0.3s; }
+        .btn-users { background: #2ecc71; }
+        .btn-matches { background: #3498db; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        #status { margin-top: 2rem; width: 100%; max-width: 600px; text-align: left; background: #000; padding: 1rem; border-radius: 8px; font-family: monospace; max-height: 300px; overflow-y: auto; font-size: 0.9rem; }
+        .success { color: #2ecc71; }
+        .info { color: #3498db; }
+        .error { color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Mantenimiento Polla Refurbi</h1>
+        <p>Usa estas herramientas para configurar tu base de datos.</p>
+        <button id="init-users-btn" class="btn-users">1. Inicializar Usuarios</button>
+        <button id="init-matches-btn" class="btn-matches">2. Importar Calendario de Partidos</button>
+    </div>
+    
+    <div id="status">Esperando acción...</div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, query, where, getDocs, addDoc, deleteDoc, serverTimestamp, Timestamp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCAewfOmvGXYXRctwSe3ylWG5FMohGccWk",
+            authDomain: "refurbi-33690.firebaseapp.com",
+            projectId: "refurbi-33690",
+            storageBucket: "refurbi-33690.firebasestorage.app",
+            messagingSenderId: "964460492417",
+            appId: "1:964460492417:web:12df82471c478219543f80",
+            measurementId: "G-4PZKG80N8F"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const log = (msg, type = 'info') => {
+            const status = document.getElementById('status');
+            const colorClass = type === 'success' ? 'success' : (type === 'error' ? 'error' : 'info');
+            status.innerHTML += `<div class="${colorClass}">${msg}</div>`;
+            status.scrollTop = status.scrollHeight;
+        };
+
+        // --- USUARIOS ---
+        const listaUsuarios = ["Edwar"];
+
+        document.getElementById('init-users-btn').onclick = async () => {
+            document.getElementById('init-users-btn').disabled = true;
+            log("--- Iniciando limpieza y creación de usuarios ---");
+            
+            try {
+                // 1. Obtener y eliminar a todos los usuarios que no sean Edwar, y sus predicciones
+                const snapUsers = await getDocs(collection(db, "usuarios"));
+                for (const userDoc of snapUsers.docs) {
+                    const nombre = userDoc.data().nombre;
+                    if (nombre && nombre.toLowerCase() !== "edwar") {
+                        log(`🧹 Eliminando a ${nombre} de la base de datos...`);
+                        
+                        // Eliminar sus predicciones
+                        const qPreds = query(collection(db, "predicciones"), where("usuario", "==", nombre));
+                        const snapPreds = await getDocs(qPreds);
+                        for (const predDoc of snapPreds.docs) {
+                            await deleteDoc(predDoc.ref);
+                        }
+                        
+                        // Eliminar usuario
+                        await deleteDoc(userDoc.ref);
+                        log(`✅ Eliminado: ${nombre}`, 'success');
+                    }
+                }
+            } catch (e) {
+                log(`❌ Error durante la limpieza: ${e.message}`, 'error');
+            }
+
+            // 2. Asegurar que Edwar exista
+            for (const nombre of listaUsuarios) {
+                try {
+                    const q = query(collection(db, "usuarios"), where("nombre", "==", nombre));
+                    const snap = await getDocs(q);
+                    if (snap.empty) {
+                        await addDoc(collection(db, "usuarios"), { nombre, puntos: 0, creado_el: serverTimestamp() });
+                        log(`✅ Creado: ${nombre}`, 'success');
+                    } else {
+                        log(`ℹ️ Ya existe: ${nombre}`);
+                    }
+                } catch (e) { log(`❌ Error con ${nombre}: ${e.message}`, 'error'); }
+            }
+            log("--- Proceso de usuarios terminado ---", 'success');
+            document.getElementById('init-users-btn').disabled = false;
+        };
+
+        // --- PARTIDOS ---
+        const csvData = `idEvent,strTimestamp,Round,Home Team,Home Score,Away Team,Away Score,Poster,Thumb
+octavos_1,2026-07-04 12:00:00,Octavos de Final,Canada,,Morocco,,,
+octavos_2,2026-07-04 16:00:00,Octavos de Final,Paraguay,,France,,,
+octavos_3,2026-07-05 15:00:00,Octavos de Final,Brazil,,Norway,,,
+octavos_4,2026-07-05 19:00:00,Octavos de Final,Mexico,,England,,,
+octavos_5,2026-07-06 14:00:00,Octavos de Final,Portugal,,Spain,,,
+octavos_6,2026-07-06 19:00:00,Octavos de Final,USA,,Belgium,,,
+octavos_7,2026-07-07 11:00:00,Octavos de Final,Argentina,,Egypt,,,
+octavos_8,2026-07-07 15:00:00,Octavos de Final,Switzerland,,Colombia,,,`;
+        document.getElementById('init-matches-btn').onclick = async () => {
+            const btn = document.getElementById('init-matches-btn');
+            btn.disabled = true;
+            log("--- Iniciando importación de partidos ---");
+            
+            try {
+                log("🧹 Limpiando partidos existentes en Firebase...");
+                const snapMatches = await getDocs(collection(db, "octavos"));
+                for (const matchDoc of snapMatches.docs) {
+                    await deleteDoc(matchDoc.ref);
+                }
+                log("✅ Limpieza de partidos completada.", 'success');
+            } catch (e) {
+                log(`⚠️ Advertencia al limpiar partidos: ${e.message}`, 'error');
+            }
+
+            const lines = csvData.split('\n').slice(1); // Saltar cabecera
+            let count = 0;
+
+            for (const line of lines) {
+                if (!line.trim()) continue;
+                const [idEvent, strTimestamp, Round, HomeTeam, HomeScore, AwayTeam, AwayScore, Poster, Thumb] = line.split(',');
+
+                try {
+                    // Usamos setDoc con idEvent como ID del documento para evitar duplicados
+                    await setDoc(doc(db, "octavos", idEvent), {
+                        idEvent,
+                        fecha: Timestamp.fromDate(new Date(strTimestamp)),
+                        ronda: Round,
+                        local: HomeTeam,
+                        visitante: AwayTeam,
+                        goles_local: HomeScore || null,
+                        goles_visitante: AwayScore || null,
+                        poster: Poster || "",
+                        thumb: Thumb || ""
+                    });
+                    log(`✅ Importado: ${HomeTeam} vs ${AwayTeam}`, 'success');
+                    count++;
+                } catch (e) {
+                    log(`❌ Error en partido ${idEvent}: ${e.message}`, 'error');
+                }
+            }
+
+            log(`--- Importación finalizada: ${count} partidos ---`, 'success');
+            btn.disabled = false;
+        };
+    </script>
+</body>
+</html>
